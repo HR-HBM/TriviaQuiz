@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Trivia Hub</title>
+</head>
+<body>
+    <img src="" alt="Trivia hub logo" class="logo">
+
+    <div class="quiz-selection-section">
+        <form action="/" id="selectionOptions" class="selectionOptions" method="POST">
+
+            <label for="quizCategory">Quiz Category:</label>
+            <select id="quizCategory" name="quizCategory" required>
+                <option value="">(Select Category)</option>
+                <% Object.entries(category).forEach(([categoryItem, value]) => { %>
+                    <option value="<%= value %>"><%= categoryItem %></option>
+                <% }); %>
+            </select>
+
+            <label for="questionType">Type of Questions:</label>
+            <select id="questionType" name="questionType" required>
+                <option value="">(Select Type)</option>
+                <% Object.entries(type).forEach(([typeOfQuestion, value]) => { %>
+                    <option value="<%= value %>"><%= typeOfQuestion %></option>
+                <% }); %>
+            </select>
+
+            <label for="difficultyLevel">Difficulty Level:</label>
+            <select id="difficultyLevel" name="difficultyLevel" required>
+                <option value="">(Select Level)</option>
+                <% level.forEach(levelOfDifficulty => { %>
+                    <option value="<%= levelOfDifficulty %>"><%= levelOfDifficulty%></option>
+                <% }); %>
+            </select>
+
+            <label for="numberOfQuestions">No. of Questions:</label>
+            <select id="numberOfQuestions" name="numberOfQuestions" required>
+                <option value="">(Select Number)</option>
+                <% number.forEach(questionNumber => { %>
+                    <option value="<%= questionNumber %>"><%= questionNumber %></option>
+                <% }); %>
+            </select>
+
+            <button type="submit" class="form-submit">Start Quiz</button>
+
+        </form>
+
+    </div>
+
+    <!-- <% if (locals.data) { %>
+            <div class="question">
+                <% data.results.forEach(question => { %>
+                    <p><strong>Difficulty:</strong> <%- question.difficulty %></p>
+                    <p><strong>Question:</strong> <%- question.question %></p>
+                    <p><strong>Correct Answer:</strong> <%- question.correct_answer %></p>
+                    <p><strong>Incorrect Answers:</strong> <%- question.incorrect_answers.join(", ") %></p>
+                    <hr>
+                <% }); %>
+    <% } else if (locals.error) { %>
+
+        <div id="tag-error" class="tag-error">
+
+            <%= error %>
+
+        </div>
+     <% } %> -->
+                
+                                    
+</div>
+
+
+    
+
+    <%- include("footer.ejs") %>
+
+    <!-- <script>
+        window.onload = function() {
+            document.getElementById('selectionOptions').reset();
+        };
+    </script> -->
+</body>
+</html>
