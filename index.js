@@ -52,13 +52,15 @@ app.post('/', async (req, res) => {
         console.log(result);
 
         if (result.response_code === 0) {
-
-            res.render('index.ejs', { category: quizCategories, level: difficultyLevels, type: questionTypes, number: questionNumbers, data: result});
-
-        } else if (result.response_code === 1) {
-
-            res.render('index.ejs', { category: quizCategories, level: difficultyLevels, type: questionTypes, number: questionNumbers, error: 'No questions available for the selected criteria.' });
-
+            res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(result.results))}`);
+        } else {
+            res.render('index.ejs', {
+                category: quizCategories,
+                level: difficultyLevels,
+                type: questionTypes,
+                number: questionNumbers,
+                error: 'No questions available for the selected criteria.'
+            });
         }
 
     } catch (error) {
@@ -69,6 +71,13 @@ app.post('/', async (req, res) => {
     
 })
 
+
+app.get("/quizPage", (req, res) => {
+    // const category = req.query.category || 'Unknown';
+    // const difficulty = req.query.difficulty || 'Unknown';
+    const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
+    res.render("quizPage.ejs", {data: quizData});
+  })
 
 
 app.listen(port, () => {

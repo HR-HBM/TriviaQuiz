@@ -1,0 +1,31 @@
+<% if (locals.data) { %>
+    <%  %>
+    <div class="quiz-header">
+        <% 
+                const firstResult = data[0];
+                const difficulty = firstResult.difficulty;
+                const category = firstResult.category;
+        %>
+            <h1 class="mainHeading"> Category- <%- category %></h1>
+            <h2 class="subHeading">Level- <%- difficulty %></h2>
+
+                
+    </div>
+            <div class="question">
+                <% data.forEach(question => { %>
+                    <p><strong>Difficulty:</strong> <%- question.difficulty %></p>
+                    <p><strong>Question:</strong> <%- question.question %></p>
+                    <p><strong>Correct Answer:</strong> <%- question.correct_answer %></p>
+                    <p><strong>Incorrect Answers:</strong> <%- question.incorrect_answers.join(", ") %></p>
+                    <hr>
+                <% }); %>
+    <% } else { %>
+
+        <div id="tag-error" class="tag-error">
+
+            <p>no quiz data available</p>
+
+        </div>
+     <% } %>
+
+<%- include ("footer.ejs") %>
