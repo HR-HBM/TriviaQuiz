@@ -27,7 +27,8 @@
     
     <div class="question">
 
-        <h3> Question <%- currentQuestionNumber %> of <%- totalQuestions %></h3>
+        <label for="quizProgress"> <%- currentQuestionNumber %> / <%- totalQuestions %></label>
+        <progress id="quizProgress" max="100" value="<%- (currentQuestionNumber/totalQuestions)*100 %>"><%- (currentQuestionNumber/totalQuestions)*100 %></progress>
 
         <p><strong>Question:</strong> <%- currentQuestion.question %></p>
 
