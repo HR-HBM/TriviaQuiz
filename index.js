@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 import dotenv from "dotenv";
+import lodash from "lodash";
 
 dotenv.config();
 
@@ -21,13 +22,6 @@ const numberOfQuestions = ['5', '10', '15', '20', '25', '30'];
 
 app.get('/', async (req, res) => {
     res.render('index.ejs', {category: quizCategories, level: difficultyLevels, type: questionTypes, number: numberOfQuestions});
-
-
-    // const quizCategories = "";
-    // const difficultyLevels = "";
-    // const questionTypes = "";
-    // const questionNumbers = "";
-
 });
 
 app.post('/', async (req, res) => {
@@ -71,13 +65,46 @@ app.post('/', async (req, res) => {
     
 })
 
+app.post("/quizPage", (req, res) => {
+    const quizData = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
+    const currentQuestion = parseInt(req.body.currentQuestion);
+    const action = req.body.action;
+
+    if (quizData) {
+
+    if (action === 'next') {
+        res.render("quizPage.ejs", {data: quizData, currentQuestion: currentQuestion + 1});
+    } else if (action === 'end') {
+        res.redirect('/resultsPage');
+    }
+} else {
+    res.render("quizPage.ejs", {data: null});
+}
+
+});
+
 
 app.get("/quizPage", (req, res) => {
-    // const category = req.query.category || 'Unknown';
-    // const difficulty = req.query.difficulty || 'Unknown';
     const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
-    res.render("quizPage.ejs", {data: quizData});
+
+    if (quizData) {
+        quizData.forEach(question => {
+
+            let answerOptions = [...question.incorrect_answers, question.correct_answer];
+            question.shuffledAnswers = lodash.shuffle(answerOptions);
+            
+        });
+    }
+
+    res.render("quizPage.ejs", {data: quizData, currentQuestion: 1});
   })
+
+  app.get("/resultsPage", (req, res) => {
+    const results = "your total score is";
+
+    res.render("resultsPage.ejs", {score: results});
+
+  });
 
 
 app.listen(port, () => {

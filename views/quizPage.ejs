@@ -5,20 +5,51 @@
                 const firstResult = data[0];
                 const difficulty = firstResult.difficulty;
                 const category = firstResult.category;
+
+    
+                const currentScore = 0;
+                const totalScore = 0;
+                let currentQuestionNumber = locals.currentQuestion || 1;
+                const totalQuestions = data.length;
+                const currentQuestion = data[currentQuestionNumber - 1];
+
+
         %>
             <h1 class="mainHeading"> Category- <%- category %></h1>
             <h2 class="subHeading">Level- <%- difficulty %></h2>
 
                 
     </div>
-            <div class="question">
-                <% data.forEach(question => { %>
-                    <p><strong>Difficulty:</strong> <%- question.difficulty %></p>
-                    <p><strong>Question:</strong> <%- question.question %></p>
-                    <p><strong>Correct Answer:</strong> <%- question.correct_answer %></p>
-                    <p><strong>Incorrect Answers:</strong> <%- question.incorrect_answers.join(", ") %></p>
-                    <hr>
-                <% }); %>
+
+
+    
+
+    
+    <div class="question">
+
+        <h3> Question <%- currentQuestionNumber %> of <%- totalQuestions %></h3>
+
+        <p><strong>Question:</strong> <%- currentQuestion.question %></p>
+
+        <form action="/quizPage" id="answerOptions" class="answer-options" method="POST">
+
+            <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
+            <input type="hidden" name="currentQuestion" value="<%- currentQuestionNumber %>">
+
+
+            <% currentQuestion.shuffledAnswers.forEach(answer => { %>
+                <input type="button" class="answer-option" width="80px" value="<%= answer %>">
+            <% }); %>
+
+            <% if (currentQuestionNumber < totalQuestions) { %>
+                <button type="submit" class="answer-submit-button" name="action" value="next">Next Question</button>
+                <% } else { %>
+                    <button type="submit" class="answer-submit-button" name="action" value="end"> View Results</button>
+                <% } %>
+             </form>
+        </div>
+                    
+
     <% } else { %>
 
         <div id="tag-error" class="tag-error">
@@ -27,5 +58,10 @@
 
         </div>
      <% } %>
+    
+
+    
+
+            
 
 <%- include ("footer.ejs") %>
