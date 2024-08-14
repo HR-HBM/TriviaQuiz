@@ -1,3 +1,5 @@
+</main>
+
 <footer>
     <div>
       Copyright &copy; 
@@ -9,3 +11,35 @@
       
   </div>
   </footer>
+
+  <!-- <script>
+
+function checkAnswer() {
+    let boxes = document.querySelectorAll('.answer-option'); // Select all elements with the class 'myClass'
+    boxes.forEach((box, index) => {
+        box.id = 'newId' + (index + 1); // Assign a unique ID to each element, e.g., 'newId1', 'newId2', etc.
+    });
+}
+
+  </script> -->
+
+  <script>
+    function handleAnswerClick(button, isCorrect) {
+    // Remove focus from all buttons (optional, if you don't want the focus effect)
+    const buttons = document.querySelectorAll('.answer-option');
+    buttons.forEach(btn => {
+        btn.disabled = true; // Disable all buttons after one is clicked
+    });
+
+    // Add the 'clicked' class based on whether the answer is correct or incorrect
+    if (isCorrect === 'true') {
+        button.classList.add('clicked');
+    } else {
+        button.classList.add('clicked');
+    }
+    document.querySelector(".answer-submit-button").disabled = false;
+
+}
+  </script>
+  </body>
+  </html>

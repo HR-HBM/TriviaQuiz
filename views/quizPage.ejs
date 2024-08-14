@@ -1,3 +1,5 @@
+<%- include("header.ejs") %>
+
 <% if (locals.data) { %>
     <%  %>
     <div class="quiz-header">
@@ -15,8 +17,8 @@
 
 
         %>
-            <h1 class="mainHeading"> Category- <%- category %></h1>
-            <h2 class="subHeading">Level- <%- difficulty %></h2>
+            <h1 class="mainHeading"><%- category %></h1>
+            <h2 class="subHeading">Level: <%- difficulty %></h2>
 
                 
     </div>
@@ -30,22 +32,24 @@
         <label for="quizProgress"> <%- currentQuestionNumber %> / <%- totalQuestions %></label>
         <progress id="quizProgress" max="100" value="<%- (currentQuestionNumber/totalQuestions)*100 %>"><%- (currentQuestionNumber/totalQuestions)*100 %></progress>
 
-        <p><strong>Question:</strong> <%- currentQuestion.question %></p>
+        <p><%- currentQuestion.question %></p>
 
         <form action="/quizPage" id="answerOptions" class="answer-options" method="POST">
 
             <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
             <input type="hidden" name="currentQuestion" value="<%- currentQuestionNumber %>">
+            <input type="hidden" name="correctAnswer" value="<%- currentQuestion.correct_answer %>">
 
 
             <% currentQuestion.shuffledAnswers.forEach(answer => { %>
-                <input type="button" class="answer-option" width="80px" value="<%= answer %>">
+                <input type="button" class="<%- answer === currentQuestion.correct_answer ? 'correct-answer' : 'incorrect-answer' %> answer-option" width="80px" value="<%- answer %>" onclick="handleAnswerClick(this, '<%= answer === currentQuestion.correct_answer %>')">
+                
             <% }); %>
 
             <% if (currentQuestionNumber < totalQuestions) { %>
-                <button type="submit" class="answer-submit-button" name="action" value="next">Next Question</button>
+                <button type="submit" class="answer-submit-button" name="action" value="next" disabled>Next Question</button>
                 <% } else { %>
-                    <button type="submit" class="answer-submit-button" name="action" value="end"> View Results</button>
+                    <button type="submit" class="answer-submit-button" name="action" value="end" disabled> View Results</button>
                 <% } %>
              </form>
         </div>

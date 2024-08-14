@@ -1,0 +1,10 @@
+.answer-option {
+    background-color: peru;
+}
+.correct-answer.clicked {
+    background-color: green;
+}
+
+.incorrect-answer.clicked {
+    background-color: red;
+}
