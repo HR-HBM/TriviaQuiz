@@ -1,11 +1,44 @@
 <h1>Hey THERE!</h1>
+<% if (locals.data) { %>
+<p>you have answered <%- userScore %> out of <%- totalQuestions %> questions correctly </p>
+<form action="/retry" method="POST">
+    <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
+    <button type="submit">Retry Quiz</button>
 
-<form action="/">
-    <button>Try another quiz</button>
 </form>
+<form action="/" method="GET">
+    <button type="submit">Try Another quiz</button>
+</form>
+<% } else { %>
+
+    <div id="tag-error" class="tag-error">
+
+        <p>no quiz data available</p>
+
+    </div>
+ <% } %>
+<!-- <div class="result-page-actions">
+    
+<% if (locals.data) { %>
+    <form action="/retry" method="POST">
+        <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
+        <button type="submit">Retry Quiz</button>
+    </form>
+    <% } else { %>
+
+        <div id="tag-error" class="tag-error">
+
+            <p>no quiz data available</p>
+
+        </div>
+     <% } %>
+</div> -->
+
 
 <!-- <form action="/" method="POST">
     <button>retry quiz</button>
 </form>
 
 <a href="/quizpage">retry quiz</a> -->
+
+

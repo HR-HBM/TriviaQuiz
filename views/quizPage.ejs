@@ -9,8 +9,7 @@
                 const category = firstResult.category;
 
     
-                const currentScore = 0;
-                const totalScore = 0;
+                let currentScore = locals.currentScore;
                 let currentQuestionNumber = locals.currentQuestion || 1;
                 const totalQuestions = data.length;
                 const currentQuestion = data[currentQuestionNumber - 1];
@@ -18,15 +17,10 @@
 
         %>
             <h1 class="mainHeading"><%- category %></h1>
-            <h2 class="subHeading">Level: <%- difficulty %></h2>
+            <h2 class="subHeading">Quiz Level: <%- difficulty %></h2>
 
-                
-    </div>
+    </div>    
 
-
-    
-
-    
     <div class="question">
 
         <label for="quizProgress"> <%- currentQuestionNumber %> / <%- totalQuestions %></label>
@@ -39,6 +33,8 @@
             <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
             <input type="hidden" name="currentQuestion" value="<%- currentQuestionNumber %>">
             <input type="hidden" name="correctAnswer" value="<%- currentQuestion.correct_answer %>">
+            <input type="hidden" name="score" value="<%- currentScore %>">
+
 
 
             <% currentQuestion.shuffledAnswers.forEach(answer => { %>
@@ -47,9 +43,13 @@
             <% }); %>
 
             <% if (currentQuestionNumber < totalQuestions) { %>
+
                 <button type="submit" class="answer-submit-button" name="action" value="next" disabled>Next Question</button>
-                <% } else { %>
-                    <button type="submit" class="answer-submit-button" name="action" value="end" disabled> View Results</button>
+
+            <% } else { %>
+
+                <button type="submit" class="answer-submit-button" name="action" value="end" disabled> View Results</button> 
+
                 <% } %>
              </form>
         </div>
@@ -64,9 +64,5 @@
         </div>
      <% } %>
     
-
-    
-
-            
 
 <%- include ("footer.ejs") %>

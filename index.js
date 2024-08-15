@@ -26,10 +26,10 @@ app.get('/', async (req, res) => {
 
 app.post('/', async (req, res) => {
 
-    const quizCategories = {'General Knowledge': 9, 'Books': 10, 'Music': 12, 'Video Games': 15, 'Nature': 17, 'Computers': 18, 'History': 23, 'Politics': 24, 'Animals': 27, 'Vehicles': 28, 'Gadgets': 30, 'Anime': 31};
-    const difficultyLevels = ['easy', 'medium', 'hard'];
-    const questionTypes = {'Multiple Choice': 'multiple', 'True or False': 'boolean'};
-    const questionNumbers = ['5', '10', '15', '20', '25', '30'];
+    // const quizCategories = {'General Knowledge': 9, 'Books': 10, 'Music': 12, 'Video Games': 15, 'Nature': 17, 'Computers': 18, 'History': 23, 'Politics': 24, 'Animals': 27, 'Vehicles': 28, 'Gadgets': 30, 'Anime': 31};
+    // const difficultyLevels = ['easy', 'medium', 'hard'];
+    // const questionTypes = {'Multiple Choice': 'multiple', 'True or False': 'boolean'};
+    // const questionNumbers = ['5', '10', '15', '20', '25', '30'];
 
 
     try {
@@ -69,42 +69,81 @@ app.post("/quizPage", (req, res) => {
     const quizData = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
     const currentQuestion = parseInt(req.body.currentQuestion);
     const action = req.body.action;
+    let score = parseInt(req.body.score) || 0;
+
+    // const selectedAnswer = req.body.selectedAnswer;
+    // const correctAnswer = quizData[currentQuestion -1].correctAnswer;
+
+    // if (selectedAnswer === correctAnswer) {
+    //     score += 1;
+    // }
 
     if (quizData) {
-
-    if (action === 'next') {
-        res.render("quizPage.ejs", {data: quizData, currentQuestion: currentQuestion + 1});
-    } else if (action === 'end') {
-        res.redirect('/resultsPage');
+        if (action === 'next') {
+            res.render("quizPage.ejs", {data: quizData, currentQuestion: currentQuestion + 1, currentScore: score});
+        } else if (action === 'end') {
+            res.redirect(`/resultsPage?score=${score}&data=${encodeURIComponent(JSON.stringify(quizData))}`);
+        }
+    } else {
+        res.render("quizPage.ejs", {data: null});
     }
-} else {
-    res.render("quizPage.ejs", {data: null});
-}
-
 });
-
 
 app.get("/quizPage", (req, res) => {
     const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
+    const score = parseInt(req.query.score) || 0;
 
     if (quizData) {
         quizData.forEach(question => {
-
             let answerOptions = [...question.incorrect_answers, question.correct_answer];
             question.shuffledAnswers = lodash.shuffle(answerOptions);
-            
         });
     }
+    res.render("quizPage.ejs", {data: quizData, currentQuestion: 1, currentScore: score});
+  })
 
-    res.render("quizPage.ejs", {data: quizData, currentQuestion: 1});
+  
+
+  app.post("/resultsPage", (req, res) => {
+    const score = parseInt(req.body.score) || 0;
+    const quizData = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
+
+    if (quizData) {
+        const totalQuestions = quizData.length
+        res.render("resultsPage.ejs", {userScore: score, data: quizData, totalQuestions: totalQuestions});
+
+    }
+
+
+    
   })
 
   app.get("/resultsPage", (req, res) => {
-    const results = "your total score is";
+    const score = parseInt(req.query.score) || 0;
+    const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
 
-    res.render("resultsPage.ejs", {score: results});
+    if (quizData) {
+        const totalQuestions = quizData.length
+        res.render("resultsPage.ejs", {userScore: score, data: quizData, totalQuestions: totalQuestions});
+
+    }
+
+    // const quizData = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
+
+
+    // res.render("resultsPage.ejs", {data: quizData, userScore: score});
 
   });
+
+  app.post("/retry", (req, res) => {
+    
+    const quiz = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
+    if (quiz) {
+        res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(quiz))}&score=0`);
+    } else {
+        res.render("quizPage.ejs", {data: null});
+    }
+  })
 
 
 app.listen(port, () => {
