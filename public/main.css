@@ -1,7 +1,7 @@
 .answer-option {
     background-color: peru;
 }
-.correct-answer.clicked {
+.correct-answer.clicked, .correct-answer.reveal-answer {
     background-color: green;
 }
 
