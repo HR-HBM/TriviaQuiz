@@ -1,6 +1,57 @@
-<h1>Hey THERE!</h1>
+<h1>Your Score: <%- userScore %>/<%- totalQuestions %></h1>
+<% const scorePercentage = (userScore/totalQuestions)*100 %>
 <% if (locals.data) { %>
-<p>you have answered <%- userScore %> of <%- totalQuestions %> questions correctly </p>
+<p>You have answered <%- scorePercentage %>% of the quiz questions correctly! </p>
+<% 
+  fairComment = [
+    'That was a tough one, but don’t worry, you’ll get better with practice!',
+    'It’s okay! Every great journey starts with a single step.',
+    'Not quite there yet, but don’t give up—you’ve got this!',
+    'Everyone has off days. Keep trying and you’ll improve!',
+    'This quiz was just warming you up. You’ll do better next time!',
+    'Hang in there! You’re learning with every question.',
+    'Don’t be discouraged! Every attempt brings you closer to success.',
+    'Even the best make mistakes. Keep pushing forward!',
+    'It’s all about progress, not perfection. Keep at it!',
+    'This score doesn’t define you. Brush it off and try again!'
+  ];
+
+  goodComment = [
+    'Nice effort! You’re definitely on the right track.',
+    'Good job! Just a few more correct answers and you’ll ace it!',
+    'You’re almost there! Keep up the good work!',
+    'Well done! A little more practice and you’ll hit the top score.',
+    'You’ve got some solid knowledge! Keep building on it.',
+    'Great work! With a bit more focus, you’ll nail it next time.',
+    'You’re doing well! Just a few more tweaks and you’ll master this.',
+    'So close! Keep going, you’re almost at the top!',
+    'You’ve made good progress! Just a little more effort to perfect it.',
+    'You’ve got the potential! Keep pushing, and you’ll get there.'
+  ];
+
+  excellentComment = [
+    'Excellent work! You’re really on top of your game!',
+    'Great job! You’ve got a strong grasp on this.',
+    'You’re crushing it! Keep up the awesome work!',
+    'Fantastic! You’re really showing your knowledge here.',
+    'You’re a star! That’s an impressive score.',
+    'Amazing job! You’ve clearly put in the effort.',
+    'You’ve mastered this! Just a few more points to perfection!',
+    'Well done! Your hard work is paying off.',
+    'You’re knocking it out of the park! Keep it up!',
+    'You’ve got this down! An outstanding performance!'
+  ];
+%>
+
+
+<% if (scorePercentage < 25) { %>
+    <%= fairComment[Math.floor(Math.random() * fairComment.length)] %>
+  <% } else if (scorePercentage < 75) { %>
+    <%= goodComment[Math.floor(Math.random() * goodComment.length)] %>
+  <% } else { %>
+    <%= excellentComment[Math.floor(Math.random() * excellentComment.length)] %>
+  <% } %>
+    <br>
 <form action="/retry" method="POST">
     <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
     <button type="submit">Retry Quiz</button>

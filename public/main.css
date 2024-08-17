@@ -1,3 +1,12 @@
+body {
+    font-family: "Titillium Web", "Dosis";
+    background-color: #01204E;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    margin: 0;
+}
 .answer-option {
     background-color: peru;
 }
@@ -8,3 +17,80 @@
 .incorrect-answer.clicked {
     background-color: red;
 }
+.logo {
+    height: 106px;
+    width: 237px;
+}
+.logo-container {
+    max-width: fit-content;  
+    margin: 30px auto 0 auto;
+    
+}      
+label {
+    width:200px;
+    display: inline-block;
+    color: #01204E;
+    margin-top: 21px;
+    margin-left: 18px;
+    font-weight: 700;
+    font-size: 15px;
+
+  }
+
+.quiz-category {
+    /* float: left;
+    width: 235px;
+    height: 30px; */
+    /* font-family: "Titillium Web";
+    /* font-size: 100px; */
+    /* color: #01204E;  */
+}
+select {
+    font-family: "Titillium Web", "Dosis";
+    background-color: #F6DCAC;
+    border-radius: 10px;
+    color: #028391;
+    height: 30px;
+    width: 200px;
+    margin-left: 18px;
+    font-size: 13px;
+}
+
+.quiz-selection-section {
+    background-color: #028391;
+    height: 385px;
+    width: 235px;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    margin: 30px auto 0 auto;
+}
+footer {
+    margin-top: auto;
+   
+}
+.form-submit {
+    width: 235px;
+    height: 30px;
+    margin-left: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #DC5F00;
+    color: #F6DCAC;
+    border: none;
+    font-family: "Titillium Web", "Dosis";
+    font-size: 15px;
+    opacity: 0.5;
+    cursor: not-allowed;
+    /* cursor: not-allowed;  */
+    font-weight: 700;
+    /* transform: translateY(-100%); */
+}
+ 
+form:valid .form-submit {
+    opacity: 1; 
+    cursor: pointer; 
+} 
+/* button {
+    border-color: none;
+} */

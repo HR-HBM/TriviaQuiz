@@ -1,12 +1,13 @@
 <%- include("header.ejs") %>
 
-    
-    <img src="" alt="Trivia hub logo" class="logo">
+    <div class="logo-container">
+        <img src="logo.png" alt="Trivia hub logo" class="logo">
+    </div>
 
     <div class="quiz-selection-section">
         <form action="/" id="selectionOptions" class="selectionOptions" method="POST">
 
-            <label for="quizCategory">Quiz Category:</label>
+            <label for="quizCategory" class="quiz-category">Quiz Category:</label>
             <select id="quizCategory" name="quizCategory" required>
                 <option value="">(Select Category)</option>
                 <% Object.entries(category).forEach(([categoryItem, value]) => { %>
