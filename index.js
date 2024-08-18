@@ -7,12 +7,12 @@ import lodash from "lodash";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-const quizCategories = {'General Knowledge': 9, 'Books': 10, 'Music': 12, 'Video Games': 15, 'Nature': 17, 'Computers': 18, 'History': 23, 'Politics': 24, 'Animals': 27, 'Vehicles': 28, 'Gadgets': 30, 'Anime': 31};
+const quizCategories = {'General Knowledge': 9, 'Entertainment:Books': 10, 'Entertainment: Music': 12, 'Video Games': 15, 'Science & Nature': 17, 'Science: Computers': 18, 'History': 23, 'Politics': 24, 'Animals': 27, 'Vehicles': 28, 'Gadgets': 30, 'Japanese Anime & Manga': 31, 'Cartoon & Animations': 32, 'Board Games': 16, 'Sports': 21, ' Entertainment: Films': 11, 'Entertainment: Musicals & Theatres': 13, 'Television': 14};
 const difficultyLevels = ['easy', 'medium', 'hard'];
 const questionTypes = {'Multiple Choice': 'multiple', 'True or False': 'boolean'};
 const numberOfQuestions = ['5', '10', '15', '20', '25', '30'];

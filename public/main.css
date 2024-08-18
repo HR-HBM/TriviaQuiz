@@ -37,14 +37,13 @@ label {
 
   }
 
-.quiz-category {
     /* float: left;
     width: 235px;
     height: 30px; */
     /* font-family: "Titillium Web";
     /* font-size: 100px; */
     /* color: #01204E;  */
-}
+
 select {
     font-family: "Titillium Web", "Dosis";
     background-color: #F6DCAC;
@@ -66,6 +65,9 @@ select {
 }
 footer {
     margin-top: auto;
+    background-color: #F6DCAC;
+    text-align: center;
+    color: #01204E;
    
 }
 .form-submit {
@@ -94,3 +96,36 @@ form:valid .form-submit {
 /* button {
     border-color: none;
 } */
+
+.quiz-header {
+    color: black ;
+    background-color: white; 
+    width: 235px;
+    height: 140px;
+    border-radius: 0 0 10px 10px;
+
+}
+
+.question {
+    color: white
+}
+
+label.quiz-progress {
+    color: white;
+}
+.progress-bar {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+}
+#answerOptions input {
+    border: none;
+    border-radius: 10px;
+}
+.question-section {
+    background-color: lightblue;
+}
+.quizpage-logo {
+    width: 85px;
+    height: 40px;
+}

@@ -1,4 +1,5 @@
 <%- include("header.ejs") %>
+<img src="/logo.png" alt="" class="quizpage-logo">
 
 <% if (locals.data) { %>
     <%  %>
@@ -22,9 +23,12 @@
     </div>    
 
     <div class="question">
+        <div class="progress-bar">
 
-        <label for="quizProgress"> <%- currentQuestionNumber %> / <%- totalQuestions %></label>
+        <label class="quiz-progress" for="quizProgress"> <%= currentQuestionNumber %> / <%= totalQuestions %></label>
         <progress id="quizProgress" max="100" value="<%- (currentQuestionNumber/totalQuestions)*100 %>"><%- (currentQuestionNumber/totalQuestions)*100 %></progress>
+        </div>
+        <div class="question-section">
 
         <p><%- currentQuestion.question %></p>
 
@@ -51,7 +55,8 @@
                 <button type="submit" class="answer-submit-button" name="action" value="end" disabled> View Results</button> 
 
                 <% } %>
-             </form>
+            </form>
+            </div>
         </div>
                     
 

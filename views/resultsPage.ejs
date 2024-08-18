@@ -1,7 +1,7 @@
 <h1>Your Score: <%- userScore %>/<%- totalQuestions %></h1>
 <% const scorePercentage = (userScore/totalQuestions)*100 %>
 <% if (locals.data) { %>
-<p>You have answered <%- scorePercentage %>% of the quiz questions correctly! </p>
+<p>You have answered <%- scorePercentage %>% of the questions correctly! </p>
 <% 
   fairComment = [
     'That was a tough one, but don’t worry, you’ll get better with practice!',
