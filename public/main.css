@@ -18,13 +18,20 @@ body {
     font-size: 13px;
     line-height: 70%;
     cursor: pointer;
+    margin-top: 20px;
+    font-weight: 600;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+    
 }
 .correct-answer.clicked, .correct-answer.reveal-answer {
-    background-color: green;
+    background-color: #97BE5A;
 }
 
 .incorrect-answer.clicked {
-    background-color: red;
+    background-color: #FF0000;
+    color: #F6DCAC;
+
 }
 .answer-option:disabled {
     cursor: not-allowed; /* Visual indicator when disabled */
@@ -67,6 +74,8 @@ select {
     width: 200px;
     margin-left: 18px;
     font-size: 13px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .quiz-selection-section, .question-section {
@@ -82,6 +91,7 @@ footer {
     background-color: #F6DCAC;
     text-align: center;
     color: #01204E;
+    font-weight: 600;
    
 }
 .form-submit, .answer-submit-button {
@@ -101,6 +111,8 @@ footer {
     /* cursor: not-allowed;  */
     font-weight: 700;
     /* transform: translateY(-100%); */
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .answer-submit-button:disabled {
@@ -123,7 +135,7 @@ form:valid .form-submit {
     /* color: black ;
     background-color: white;  */
     width: 235px;
-    height: 140px;
+    height: 160px;
     border-radius: 0 0 10px 10px;
     position: absolute;
     top: 0;
@@ -135,7 +147,7 @@ form:valid .form-submit {
     position: absolute;
     color: black;
     width: 235px;
-    height: 140px;
+    height: 160px;
     text-align: center;
     top: 0;
     right: 0;
@@ -143,13 +155,13 @@ form:valid .form-submit {
 .header-container {
     position: relative;
     width: 235px;
-    height: 140px;
+    height: 160px;
     margin: 0 auto;
 }
 .background-overlay {
     position: relative;
     width: 235px;
-    height: 140px;
+    height: 160px;
     margin: 0 auto;
     background-color: rgba(1, 32, 78, 0.65) ;
 
@@ -196,6 +208,10 @@ label.quiz-progress {
 }
 .question-section {
     background-color: #028391;
+    padding-top: 25px;
+    height: fit-content;
+    padding-bottom: 8%;
+
 }
 .quizpage-logo {
     width: 85px;
@@ -212,6 +228,47 @@ label.quiz-progress {
     font-size: 13px;
     line-height: 70%;
 }
+
+*/
 #answerOptions {
-    height: 180px;
-} */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* padding-top: 10%;
+    padding-bottom: 15%; */
+    /* justify-content: space-between; */
+} 
+
+.quiz-question {
+    color: #01204E;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    width: 200px;
+    line-height: 100%;
+    margin: 0 18px 15px 18px;
+    /* margin-top: 0;
+    margin:; */
+}
+.progress-bar {
+    margin: 0 auto;
+}
+progress {
+    width: 235px;
+    margin: 0 auto;
+    background-color: pink;
+    border-radius: 5px;
+    height: 10px;
+}
+#quizProgress::-webkit-progress-bar {
+    background-color: #F6DCAC;
+    border-radius: 5px;
+}
+#quizProgress::-webkit-progress-value {
+    background-color: #028391;
+    border-radius: 5px;
+}
+label.quiz-progress {
+    color: #F6DCAC;
+}
