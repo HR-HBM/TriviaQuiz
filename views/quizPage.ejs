@@ -1,26 +1,30 @@
 <%- include("header.ejs") %>
-<img src="/logo.png" alt="" class="quizpage-logo">
+
 
 <% if (locals.data) { %>
-    <%  %>
-    <div class="quiz-header">
+    <div class="header-container">
         <% 
                 const firstResult = data[0];
                 const difficulty = firstResult.difficulty;
                 const category = firstResult.category;
-
+                const categoryNumber = quizCategoryNumber
     
                 let currentScore = locals.currentScore;
                 let currentQuestionNumber = locals.currentQuestion || 1;
                 const totalQuestions = data.length;
                 const currentQuestion = data[currentQuestionNumber - 1];
-
-
         %>
-            <h1 class="mainHeading"><%- category %></h1>
-            <h2 class="subHeading">Quiz Level: <%- difficulty %></h2>
-
-    </div>    
+            <div class="quiz-header" style="background-image: url('/images/<%- categoryNumber %>.png'); background-size: cover; background-position: center; filter: grayscale(100%) opacity(0.5);">
+            </div> 
+    <div class="background-overlay"></div>
+    <div class="heading-section">
+        <div class="logo-container" id="quizPageLogoContainer">
+            <img src="/logo.png" alt="" class="quizpage-logo"> 
+         </div>
+        <h1 class="mainheading"><%- category %></h1>
+        <h2 class="subheading">Quiz Level: <%- difficulty %></h2>
+    </div>   
+</div>
 
     <div class="question">
         <div class="progress-bar">
@@ -38,6 +42,8 @@
             <input type="hidden" name="currentQuestion" value="<%- currentQuestionNumber %>">
             <input type="hidden" name="correctAnswer" value="<%- currentQuestion.correct_answer %>">
             <input type="hidden" name="score" value="<%- currentScore %>">
+            <input type="hidden" name="quizCategoryNumber" value="<%- categoryNumber %>"> 
+
 
 
 

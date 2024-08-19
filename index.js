@@ -44,9 +44,10 @@ app.post('/', async (req, res) => {
         const response = await axios.get(apiUrl);
         const result = response.data;
         console.log(result);
+        console.log('Quiz Category Number', quizCategory)
 
         if (result.response_code === 0) {
-            res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(result.results))}`);
+            res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(result.results))}&categoryNumber=${encodeURIComponent(quizCategory)}`);
         } else {
             res.render('index.ejs', {
                 category: quizCategories,
@@ -70,6 +71,7 @@ app.post("/quizPage", (req, res) => {
     const currentQuestion = parseInt(req.body.currentQuestion);
     const action = req.body.action;
     let score = parseInt(req.body.score) || 0;
+    const categoryNumber = req.body.quizCategoryNumber;
 
     // const selectedAnswer = req.body.selectedAnswer;
     // const correctAnswer = quizData[currentQuestion -1].correctAnswer;
@@ -80,9 +82,9 @@ app.post("/quizPage", (req, res) => {
 
     if (quizData) {
         if (action === 'next') {
-            res.render("quizPage.ejs", {data: quizData, currentQuestion: currentQuestion + 1, currentScore: score});
+            res.render("quizPage.ejs", {data: quizData, currentQuestion: currentQuestion + 1, currentScore: score, quizCategoryNumber: categoryNumber});
         } else if (action === 'end') {
-            res.redirect(`/resultsPage?score=${score}&data=${encodeURIComponent(JSON.stringify(quizData))}`);
+            res.redirect(`/resultsPage?score=${score}&data=${encodeURIComponent(JSON.stringify(quizData))}&categoryNumber=${encodeURIComponent(categoryNumber)}`);
         }
     } else {
         res.render("quizPage.ejs", {data: null});
@@ -92,6 +94,7 @@ app.post("/quizPage", (req, res) => {
 app.get("/quizPage", (req, res) => {
     const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
     const score = parseInt(req.query.score) || 0;
+    const categoryNumber = req.query.categoryNumber;
 
     if (quizData) {
         quizData.forEach(question => {
@@ -99,7 +102,7 @@ app.get("/quizPage", (req, res) => {
             question.shuffledAnswers = lodash.shuffle(answerOptions);
         });
     }
-    res.render("quizPage.ejs", {data: quizData, currentQuestion: 1, currentScore: score});
+    res.render("quizPage.ejs", {data: quizData, currentQuestion: 1, currentScore: score, quizCategoryNumber: categoryNumber});
   })
 
   
