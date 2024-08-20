@@ -60,7 +60,7 @@ app.post('/', async (req, res) => {
 
     } catch (error) {
         console.error('Failed to make request:', error.message),
-        res.render('index.ejs', {error: 'Failed to fetch data from API.'});
+        res.render('index.ejs', {error: 'No questions available for the selected criteria. Please retry by selecting a lower number of questions.'});
     }
 
     
@@ -110,10 +110,11 @@ app.get("/quizPage", (req, res) => {
   app.post("/resultsPage", (req, res) => {
     const score = parseInt(req.body.score) || 0;
     const quizData = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
+    const categoryNumber = req.body.quizCategoryNumber;
 
     if (quizData) {
         const totalQuestions = quizData.length
-        res.render("resultsPage.ejs", {userScore: score, data: quizData, totalQuestions: totalQuestions});
+        res.render("resultsPage.ejs", {userScore: score, data: quizData, totalQuestions: totalQuestions, quizCategoryNumber: categoryNumber});
 
     }
 
@@ -124,10 +125,12 @@ app.get("/quizPage", (req, res) => {
   app.get("/resultsPage", (req, res) => {
     const score = parseInt(req.query.score) || 0;
     const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
+    const categoryNumber = req.query.categoryNumber;
+
 
     if (quizData) {
         const totalQuestions = quizData.length
-        res.render("resultsPage.ejs", {userScore: score, data: quizData, totalQuestions: totalQuestions});
+        res.render("resultsPage.ejs", {userScore: score, data: quizData, totalQuestions: totalQuestions, quizCategoryNumber: categoryNumber});
 
     }
 
@@ -141,8 +144,9 @@ app.get("/quizPage", (req, res) => {
   app.post("/retry", (req, res) => {
     
     const quiz = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
+    const quizCategoryNumber = req.body.quizCategoryNumber
     if (quiz) {
-        res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(quiz))}&score=0`);
+        res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(quiz))}&score=0&categoryNumber=${encodeURIComponent(quizCategoryNumber)}`);
     } else {
         res.render("quizPage.ejs", {data: null});
     }

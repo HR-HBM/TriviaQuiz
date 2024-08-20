@@ -1,13 +1,14 @@
 body {
     font-family: "Titillium Web", "Dosis";
-    background-color: #01204E;
+    background-color: #01204EE6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     /* overflow-y: hidden; */
     margin: 0;
+    
 }
-.answer-option {
+.answer-option, .next-action-button {
     font-family: "Titillium Web", "Dosis";
     background-color: #F6DCAC;
     border-radius: 10px;
@@ -82,7 +83,7 @@ select {
     background-color: #028391;
     height: 385px;
     width: 235px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 20px 20px;
     position: relative;
     margin: 30px auto 0 auto;
 }
@@ -108,6 +109,7 @@ footer {
     font-size: 15px;
     opacity: 0.5;
     cursor: not-allowed;
+    border-radius: 0 0 20px 20px;
     /* cursor: not-allowed;  */
     font-weight: 700;
     /* transform: translateY(-100%); */
@@ -135,8 +137,8 @@ form:valid .form-submit {
     /* color: black ;
     background-color: white;  */
     width: 235px;
-    height: 160px;
-    border-radius: 0 0 10px 10px;
+    height: 130px;
+    border-radius: 0 0 20px 20px;
     position: absolute;
     top: 0;
     right: 0;
@@ -147,7 +149,7 @@ form:valid .form-submit {
     position: absolute;
     color: black;
     width: 235px;
-    height: 160px;
+    height: 130px;
     text-align: center;
     top: 0;
     right: 0;
@@ -155,30 +157,31 @@ form:valid .form-submit {
 .header-container {
     position: relative;
     width: 235px;
-    height: 160px;
+    height: 130px;
     margin: 0 auto;
 }
 .background-overlay {
     position: relative;
     width: 235px;
-    height: 160px;
+    height: 130px;
     margin: 0 auto;
     background-color: rgba(1, 32, 78, 0.65) ;
+    border-radius: 0 0 20px 20px;
 
 }
 .mainheading {
     font-size: 20px;
-    margin: 10px 0;
+    margin: 25px 0 10px 0;
     line-height: 80%;
     color: #F6DCAC;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 .subheading {
     font-size: 15px;
     margin: 5px 0;
     color: #F6DCAC;
-    font-weight: 700;
+    font-weight: 600;
 }
 /* .category-image{
     position: absolute;
@@ -207,15 +210,33 @@ label.quiz-progress {
     border-radius: 10px;
 }
 .question-section {
-    background-color: #028391;
     padding-top: 25px;
     height: fit-content;
     padding-bottom: 8%;
+    word-wrap: break-word;
 
 }
 .quizpage-logo {
     width: 85px;
     height: 40px;
+}
+
+.tag-error {
+    color: #F6DCAC;
+    padding: 20px 0;
+    width: 250px;
+    height: fit-content;
+    text-align: center;
+    margin: 50px auto;
+    border-radius: 20px;
+    border:1px solid #028391;
+}
+
+.main-error {
+    font-weight: 700;
+    color: #FF0000;
+    margin: 0;
+   
 }
 /* #answerOptions input {
     font-family: "Titillium Web", "Dosis";
@@ -240,12 +261,13 @@ label.quiz-progress {
     /* justify-content: space-between; */
 } 
 
-.quiz-question {
+.quiz-question, .score-comment {
     color: #01204E;
     text-align: center;
     font-size: 15px;
     font-weight: 600;
     width: 200px;
+    height: fit-content;
     line-height: 100%;
     margin: 0 18px 15px 18px;
     /* margin-top: 0;
@@ -270,5 +292,50 @@ progress {
     border-radius: 5px;
 }
 label.quiz-progress {
+    color: #F6DCAC;
+}
+.trophy {
+    width: 135px;
+    height: auto;
+    margin: 10px 50px;
+}
+
+.total-score {
+    font-weight: 900;
+    font-size: 25px;
+    color: #F6DCAC;
+    margin: 20px 0;
+    text-align: center;
+
+}
+.score-percentage {
+    font-weight: 400;
+    font-size: 18px;
+    color: #F6DCAC;
+    margin: 20px auto;
+    text-align: center;
+    line-height: 90%;
+    width: 210px;
+}
+
+.result-section {
+    background-color: #028391;
+    padding: 25px 0;
+    height: fit-content;
+    /* padding-bottom: 8%; */
+    word-wrap: break-word;
+    width: 235px;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    margin: 30px auto 0 auto;
+
+}
+
+#retry, #newQuiz {
+    border: 1px solid #F6DCAC;
+}
+
+#retry {
+    background-color: transparent;
     color: #F6DCAC;
 }

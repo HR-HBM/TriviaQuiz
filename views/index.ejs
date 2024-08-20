@@ -1,5 +1,25 @@
 <%- include("header.ejs") %>
 
+<% if (locals.error) { %>
+    
+    <div class="logo-container">
+        <img src="logo.png" alt="Trivia hub logo" class="logo">
+    </div>
+
+    <div id="tag-error" class="tag-error">
+        
+
+        <p class="main-error">No questions available for the selected criteria.</p>
+        <p> Please retry by selecting a lower number of questions.</p>
+
+        <form action="/" method="GET">
+            <button type="submit">Try Another Quiz</button>
+        </form>
+
+    </div>
+ <% } else { %> 
+
+
     <div class="logo-container">
         <img src="logo.png" alt="Trivia hub logo" class="logo">
     </div>
@@ -46,27 +66,12 @@
         </form>
 
     </div>
+    <% } %>
+    
 
-    <!-- <% if (locals.data) { %>
-            <div class="question">
-                <% data.results.forEach(question => { %>
-                    <p><strong>Difficulty:</strong> <%- question.difficulty %></p>
-                    <p><strong>Question:</strong> <%- question.question %></p>
-                    <p><strong>Correct Answer:</strong> <%- question.correct_answer %></p>
-                    <p><strong>Incorrect Answers:</strong> <%- question.incorrect_answers.join(", ") %></p>
-                    <hr>
-                <% }); %>
-    <% } else if (locals.error) { %>
-
-        <div id="tag-error" class="tag-error">
-
-            <%= error %>
-
-        </div>
-     <% } %> -->
+    
                 
                                     
-</div>
 
 
     

@@ -1,7 +1,31 @@
-<h1>Your Score: <%- userScore %>/<%- totalQuestions %></h1>
-<% const scorePercentage = (userScore/totalQuestions)*100 %>
+<%- include("header.ejs") %>
+
+
+<% const scorePercentage = Math.round((userScore/totalQuestions)*100); 
+
+let tropy;
+
+if (scorePercentage === 0) {
+  trophy = "fail";
+} else if (scorePercentage < 50) {
+  trophy = "bronze";
+} else if ( scorePercentage >=50 && scorePercentage < 75) {
+  trophy = "silver";
+} else {
+  trophy = "gold";
+}
+
+
+%>
+
 <% if (locals.data) { %>
-<p>You have answered <%- scorePercentage %>% of the questions correctly! </p>
+  <div class="background-overlay">
+  <img src="/images/<%= trophy %>.png" class="trophy">
+</div>
+
+
+  <h1 class="total-score">Total Score: <%- userScore %>/<%- totalQuestions %></h1>
+<p class="score-percentage">You have answered <%- scorePercentage %>% of the questions correctly! </p>
 <% 
   fairComment = [
     'That was a tough one, but don’t worry, you’ll get better with practice!',
@@ -42,24 +66,27 @@
     'You’ve got this down! An outstanding performance!'
   ];
 %>
-
+<div class="result-section">
 
 <% if (scorePercentage < 25) { %>
-    <%= fairComment[Math.floor(Math.random() * fairComment.length)] %>
+    <p class="score-comment"><%= fairComment[Math.floor(Math.random() * fairComment.length)] %></p>
   <% } else if (scorePercentage < 75) { %>
-    <%= goodComment[Math.floor(Math.random() * goodComment.length)] %>
+    <p class="score-comment"><%= goodComment[Math.floor(Math.random() * goodComment.length)] %></p>
   <% } else { %>
-    <%= excellentComment[Math.floor(Math.random() * excellentComment.length)] %>
+    <p class="score-comment"><%= excellentComment[Math.floor(Math.random() * excellentComment.length)] %></p>
   <% } %>
-    <br>
+  
 <form action="/retry" method="POST">
     <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
-    <button type="submit">Retry Quiz</button>
+    <input type="hidden" name="quizCategoryNumber" value="<%= encodeURIComponent(quizCategoryNumber) %>">
+    <button type="submit" class="next-action-button" id="retry">Retry Quiz</button>
 
 </form>
 <form action="/" method="GET">
-    <button type="submit">Try Another quiz</button>
+    <button type="submit" class="next-action-button" id="newQuiz">Try Another quiz</button>
 </form>
+
+</div>
 <% } else { %>
 
     <div id="tag-error" class="tag-error">
@@ -92,4 +119,5 @@
 
 <a href="/quizpage">retry quiz</a> -->
 
+<%- include ("footer.ejs") %>
 
