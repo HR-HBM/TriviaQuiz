@@ -43,8 +43,6 @@ app.post('/', async (req, res) => {
 
         const response = await axios.get(apiUrl);
         const result = response.data;
-        console.log(result);
-        console.log('Quiz Category Number', quizCategory)
 
         if (result.response_code === 0) {
             res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(result.results))}&categoryNumber=${encodeURIComponent(quizCategory)}`);
