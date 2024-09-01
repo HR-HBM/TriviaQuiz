@@ -251,13 +251,13 @@ label.quiz-progress {
 
 .notice {
     color: #F6DCAC;
-    width: 200px;
+    width: 300px;
     text-align: center;
-    margin: 15px auto 5px auto;
+    margin: 35px auto 5px auto;
     
 }
 .opentb-link {
-    text-decoration: none;
+    text-decoration: underline;
     color: #F6DCAC;
 }
 
