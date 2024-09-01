@@ -249,6 +249,13 @@ label.quiz-progress {
     margin-left: 12px;
 }
 
+.notice {
+    color: #F6DCAC;
+    width: 200px;
+    text-align: center;
+
+}
+
 .main-error {
     font-weight: 700;
     color: #FF0000;
