@@ -6,8 +6,23 @@ body {
     flex-direction: column;
     /* overflow-y: hidden; */
     margin: 0;
+
     
 }
+
+button:hover {
+    cursor: pointer;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+a:link {
+    color: grey;
+    text-decoration: none;
+}
+
 .answer-option, .next-action-button {
     font-family: "Titillium Web", "Dosis";
     background-color: #F6DCAC;

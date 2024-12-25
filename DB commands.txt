@@ -1,0 +1,9 @@
+psql -U hmuza -d postgres
+CREATE DATABASE quizlogin;
+ \c quizlogin
+ quizlogin=> CREATE TABLE users
+quizlogin-> (id BIGSERIAL PRIMARY KEY NOT NULL,
+quizlogin(> name VARCHAR(200) NOT NULL,
+quizlogin(> email VARCHAR(200) NOT NULL,
+quizlogin(> password VARCHAR(200) NOT NULL,
+quizlogin(> UNIQUE (email));

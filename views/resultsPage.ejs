@@ -82,14 +82,18 @@ if (scorePercentage === 0) {
     <button type="submit" class="next-action-button" id="retry">Retry Quiz</button>
 
 </form>
-<form action="/" method="GET">
+<form action="/users/quiz" method="GET">
     <button type="submit" class="next-action-button" id="newQuiz">Try Another quiz</button>
 </form>
+
+<a href="/users/logout"> Logout </a>
 
 
 </div>
 
 <p class="notice"> The questions for this quiz were sourced from <span><a href="https://opentdb.com/" class="opentb-link">Open Trivia Database.</a></span></p>
+<div>
+</div>
 
 <% } else { %>
 

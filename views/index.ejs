@@ -3,7 +3,7 @@
 <% if (locals.error) { %>
     
     <div class="logo-container">
-        <img src="logo.png" alt="Trivia hub logo" class="logo">
+        <img src="/logo.png" alt="Trivia hub logo" class="logo">
     </div>
 
     <div id="tag-error" class="tag-error">
@@ -12,20 +12,25 @@
         <p class="main-error">No questions available for the selected criteria.</p>
         <p> Please retry by selecting a lower number of questions.</p>
 
-        <form action="/" method="GET">
+        <form action="/users/quiz" method="GET">
             <button type="submit" class="next-action-button">Try Another Quiz</button>
         </form>
+        
+        <a href="/users/logout"> Logout </a>
+
 
     </div>
  <% } else { %> 
+    
+    <h1>Hello <%= user.charAt(0).toUpperCase() + user.slice(1) %>!</h1>
 
 
     <div class="logo-container">
-        <img src="logo.png" alt="Trivia hub logo" class="logo">
+        <img src="/logo.png" alt="Trivia hub logo" class="logo">
     </div>
 
     <div class="quiz-selection-section">
-        <form action="/" id="selectionOptions" class="selectionOptions" method="POST">
+        <form action="/users/quiz" id="selectionOptions" class="selectionOptions" method="POST">
 
             <label for="quizCategory" class="quiz-category">Quiz Category:</label>
             <select id="quizCategory" name="quizCategory" required>
