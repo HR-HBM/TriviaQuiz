@@ -1,15 +1,22 @@
 <%- include("header.ejs") %>
 
+<div class="main-container2">
+    <div class="login-intro-images">
 
-<ul>
-    <% if (typeof errors != 'undefined') { %>
-        <% errors.forEach(error => { %>
-            <li><%= error.message %></li>
-       <% }) %>
-    <% }%>
-</ul>
-    <h1>Register to Login</h1>
-    <form action="/users/register" method="POST">
+        <a href="/"><img src="/logo.png" alt="logo" class="mini-logo"></a>
+        
+        <div class="overlay"></div>
+        <img src="/triviaImage.jpg" alt="Trivia Image" class="trivia-image">
+        
+
+    </div>
+
+
+    <div class="credentials-section">
+        <p class="page-title">Create an Account</p>
+        <p class="guest-user"> Already have an account? <a href="/users/login"><span class="guest-user">login</span></a></p>
+
+        <form action="/users/register" method="POST" class="login-register-form">
         <div>
             <input type="text" name="name" id="name" placeholder="Name" required>
         </div>
@@ -23,9 +30,39 @@
             <input type="password" id="password2" name="password2" placeholder="Confirm Password" requried>
         </div>
         <div>
-            <input type="submit" value="Register">
+            <input type="submit" value="Submit" class="login-form-submit">
         </div>
-        <a href="/users/login">Already registered? Login here</a>
+
+        <ul class="login-error">
+            <% if (typeof errors != 'undefined') { %>
+                <% errors.forEach(error => { %>
+                    <li><%= error.message %></li>
+               <% }) %>
+            <% }%>
+        </ul>       
     </form>
+
+    <div class="oAuth-div">
+        <div class="option-title">
+            <div class="dash-line"></div>
+            <div><p>or register with</p></div>
+            <div class="dash-line"></div>
+        </div>
+
+        <div class="google-auth">
+            <a href="google"> <button class="google"><img src="/google-logo-9808 1.png" alt="Google Icon" class="google-icon">
+                Google</button> </a>
+
+
+        </div>
+
+    </div>
+    
+</div>
+</div>
+
+
+    
+
 
     <%- include("footer.ejs") %>

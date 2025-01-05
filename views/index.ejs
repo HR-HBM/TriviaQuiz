@@ -15,19 +15,39 @@
         <form action="/users/quiz" method="GET">
             <button type="submit" class="next-action-button">Try Another Quiz</button>
         </form>
-        
-        <a href="/users/logout"> Logout </a>
+        <div class="logout">
+            <a href="/users/logout"> Logout </a>
+ 
+        </div>
 
 
     </div>
  <% } else { %> 
-    
-    <h1>Hello <%= user.charAt(0).toUpperCase() + user.slice(1) %>!</h1>
-
-
-    <div class="logo-container">
-        <img src="/logo.png" alt="Trivia hub logo" class="logo">
+    <div class="top-section">
+         <div class="logo-container">
+        <a href="/"><img src="/logo.png" alt="Trivia hub logo" class="logo"></a>
     </div>
+        <div>
+        <% if (user) { %>
+        <p class="greeting">Hello <%= user.charAt(0).toUpperCase() + user.slice(1) %>!</p>
+
+   <% } else { %>
+
+    <p class="greeting">Welcome, Guest User!</p>
+
+    <% } %>
+    </div> 
+   
+    </div>
+    
+
+    
+
+  
+    
+
+
+   
 
     <div class="quiz-selection-section">
         <form action="/users/quiz" id="selectionOptions" class="selectionOptions" method="POST">

@@ -1,12 +1,13 @@
 body {
     font-family: "Titillium Web", "Dosis";
-    background-color: #01204EE6;
+    background-color: #01204E;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     /* overflow-y: hidden; */
     margin: 0;
-
+    max-height: 100vh;
+    padding: 0;
     
 }
 
@@ -110,14 +111,14 @@ select {
     width: 235px;
     border-radius: 20px 20px 20px 20px;
     position: relative;
-    margin: 30px auto 0 auto;
+    margin: 0 auto 0 auto;
     
 }
 footer {
     margin-top: auto;
-    background-color: #F6DCAC;
+    background-color: #DC5F00;
     text-align: center;
-    color: #01204E;
+    color: white;
     font-weight: 600;
    
 }
@@ -385,6 +386,265 @@ label.quiz-progress {
     color: #F6DCAC;
 }
 
+/* new css updates */
+
+.mini-logo {
+    width: 123px;
+    height: 49px;
+    margin-top: 6vh;
+    margin-left: 6.25vw;
+}
+
+.welcome-message {
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 60px;
+}
+
+.welcome-message p {
+    margin: 20px 0 70px 0;
+}
+
+.intro-message {
+    color: white;
+    width: 350px;
+    font-size: 45px;
+    display: inline-block;
+    font-weight: 400;
+    padding-right: 65px;
+    border-right: 2px solid white;
+    margin-right: 65px;
+
+}
+
+/* .intro-message p {
+    line-height: 900%;
+} */
+
+.main-container {
+    max-height: 100vh;
+}
+
+.emphasis {
+    color: #DC5F00;
+    font-weight: 600;
+}
+
+.access-options {
+    display: inline-block;
+}
+
+.access-option1, .access-option2 {
+    display: grid;
+    width: 450px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 5px;
+    color: white;
+    margin: 0 0 50px 0;
+    font-family: "Titillium Web", "Dosis";
+
+}
+.access-option1{
+    border: none;
+    background-color: #DC5F00;
+
+}
+
+.access-option2 {
+    background: none;
+    border-color: white;
+}
+
+span.guest-user {
+    text-decoration: underline;
+    color: #DC5F00;
+}
+.guest-user {
+    color: white;
+    font-size: 30px;
+}
+
+.greeting {
+    color: white;
+    margin-right: 30px;
+    font-size: 30px;
+}
+
+
+.quiz-access {
+    text-align: center;
+}
+
+.main-container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(100vh - var(--footer-height));
+    overflow-y: auto; 
+}
+
+.login-error {
+    color: white;
+    max-width: fit-content;
+    max-height: fit-content;
+    padding: 10px;
+    margin: 0;
+    list-style-type: none;
+}
+
+.trivia-image, .overlay {
+    width: 40vw;
+    height: 92vh;
+    border-radius: 5px;
+
+}
+.trivia-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.main-container2 .mini-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    margin:  20px 0 0 20px;
+    width: 123px;
+    height: 49px;
+
+}
+
+.overlay {
+    background-color: #01204E59;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.login-intro-images {
+    position: relative;
+    margin: 20px 0 auto 20px;
+    width: 40vw;
+    height: 92vh;
+}
+
+.credentials-section {
+    margin-left: 60px;
+    /* height: 100%; */
+
+
+}
+.page-title {
+    font-size: 50px;
+    color: white;
+    font-weight: 700;
+    margin: 30px 0 0 0;
+}
+
+.login-register-form input {
+    background-color: #18345E;
+    width: 450px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    margin: 0 0 30px 0;
+    font-weight: 400;
+    padding-left: 20px;
+
+}
+
+.login-register-form input::placeholder {
+    color: white;
+}
+
+.credentials-section .guest-user {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+.login-register-form input[type="submit"] {
+    background-color: #DC5F00;
+    /* padding-left: 0; */
+    width: 470px;
+
+}
+
+.option-title p {
+    color: white;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-right: 10px;
+
+
+
+    /* background-color: green; */
+}
+.login-register-form {
+    height: fit-content;
+}
+
+.option-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 470px;
+    margin-bottom: 15px;
+}
+
+.dash-line {
+    border-top: 2px solid white;
+    width: 150px;
+}
+
+.google {
+    width: 470px;
+    background-color: #18345E !important;
+    border-radius: 5px;
+    border-color: white;
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+    font-family: "Titillium Web", "Dosis";
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.google-icon {
+    width: 27px;
+    height: 26px;
+    margin: 0 30px 0 0;
+}
+
+.google-auth a {
+    max-height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.logout {
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media (min-width: 500px) {
     
     .answer-option, .next-action-button {
@@ -397,24 +657,32 @@ label.quiz-progress {
     }
    
     .logo {
-        height: 120px;
-        width: 320px;
+        height: 53px;
+        width: 120px;
     }
     .logo-container {
-        margin: 30px auto 0 auto;
+        margin: 20px 0 0 30px;
+        
+    }
+
+    .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 0 0;
     }
       
     label {
-        margin-top: 22px;
+        margin-top: 15px;
         margin-bottom: 5px;
         margin-left: 27px;
         font-size: 18px;
       }
     
     select {
-        border-radius: 15px;
+        border-radius: 10px;
         color: #028391;
-        height: 35px;
+        height: 30px;
         width: 400px;
         margin-left: 25px;
         padding-left: 5px;
@@ -422,13 +690,16 @@ label.quiz-progress {
     }
     
     #selectionOptions{
-        height: 440px;
+        height: 400px;
     }
     
     .quiz-selection-section, .question-section {
         height: fit-content;
         width: 450px;
         border-radius: 25px;        
+    }
+    .quiz-selection-section {
+        margin-top: 80px;
     }
 
     .form-submit, .answer-submit-button {
@@ -457,6 +728,9 @@ label.quiz-progress {
         height: 140px;
     
     }
+
+
+    
     .mainheading {
         font-size: 30px;
         margin: 20px 10px;
@@ -499,6 +773,7 @@ label.quiz-progress {
         width: 440px;
         border-radius: 10px;
         height: 15px;
+        margin-bottom: 30px;
     }
     #quizProgress::-webkit-progress-bar {
         border-radius: 10px;

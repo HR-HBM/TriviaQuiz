@@ -1,9 +1,28 @@
 <%- include("header.ejs") %>
 
-    <h1>Welcome to Trivia labs</h1>
-    <h2>Ready to test your Trivia Skills?</h2>
+<div class="main-container">
+    <img src="/logo.png" class="mini-logo" alt="logo">
 
-    <a href="/users/register"><button>Register to get started</button> </a>
-    <a href="/users/login"><button>Login to continue</button> </a>
+<div>
+    <div class="welcome-message">
+        <p>Welcome to Trivia labs</p>
+    </div>
+    <div class="quiz-access">
+        <div class="intro-message">
+            <p>Ready to <span class="emphasis">test</span> your Trivia Skills?</br>Gear up for a <span class="emphasis">quiz adventure</span>!</p>
+        </div>
+        <div class="access-options">
+            <a href="/users/register"><button class="access-option1">Register to get started</button> </a>
+            <a href="/users/login"><button class="access-option2">Login to continue</button> </a>
+            <p class="guest-user">Try Trivia Labs as a <a href="/users/quiz"> <span class="guest-user">Guest User</span> </a></p>
+
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+
 
 <%- include("footer.ejs") %>
