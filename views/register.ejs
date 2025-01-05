@@ -16,7 +16,8 @@
         <p class="page-title">Create an Account</p>
         <p class="guest-user"> Already have an account? <a href="/users/login"><span class="guest-user">login</span></a></p>
 
-        <form action="/users/register" method="POST" class="login-register-form">
+        <div class="form-overlay">
+            <form action="/users/register" method="POST" class="login-register-form">
         <div>
             <input type="text" name="name" id="name" placeholder="Name" required>
         </div>
@@ -41,6 +42,9 @@
             <% }%>
         </ul>       
     </form>
+        </div>
+
+        
 
     <div class="oAuth-div">
         <div class="option-title">
