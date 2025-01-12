@@ -19,93 +19,102 @@ if (scorePercentage === 0) {
 %>
 
 <% if (locals.data) { %>
-  <div class="background-overlay">
-  <img src="/images/<%= trophy %>.png" class="trophy">
-</div>
+  <div class="resultsPage-main-container">
+    <div>
 
-
-  <h1 class="total-score">Total Score: <%- userScore %>/<%- totalQuestions %></h1>
-<p class="score-percentage">You have answered <%- scorePercentage %>% of the questions correctly! </p>
-<% 
-  fairComment = [
-    'That was a tough one, but don’t worry, you’ll get better with practice!',
-    'It’s okay! Every great journey starts with a single step.',
-    'Not quite there yet, but don’t give up—you’ve got this!',
-    'Everyone has off days. Keep trying and you’ll improve!',
-    'This quiz was just warming you up. You’ll do better next time!',
-    'Hang in there! You’re learning with every question.',
-    'Don’t be discouraged! Every attempt brings you closer to success.',
-    'Even the best make mistakes. Keep pushing forward!',
-    'It’s all about progress, not perfection. Keep at it!',
-    'This score doesn’t define you. Brush it off and try again!'
-  ];
-
-  goodComment = [
-    'Nice effort! You’re definitely on the right track.',
-    'Good job! Just a few more correct answers and you’ll ace it!',
-    'You’re almost there! Keep up the good work!',
-    'Well done! A little more practice and you’ll hit the top score.',
-    'You’ve got some solid knowledge! Keep building on it.',
-    'Great work! With a bit more focus, you’ll nail it next time.',
-    'You’re doing well! Just a few more tweaks and you’ll master this.',
-    'So close! Keep going, you’re almost at the top!',
-    'You’ve made good progress! Just a little more effort to perfect it.',
-    'You’ve got the potential! Keep pushing, and you’ll get there.'
-  ];
-
-  excellentComment = [
-    'Excellent work! You’re really on top of your game!',
-    'Great job! You’ve got a strong grasp on this.',
-    'You’re crushing it! Keep up the awesome work!',
-    'Fantastic! You’re really showing your knowledge here.',
-    'You’re a star! That’s an impressive score.',
-    'Amazing job! You’ve clearly put in the effort.',
-    'You’ve mastered this! Just a few more points to perfection!',
-    'Well done! Your hard work is paying off.',
-    'You’re knocking it out of the park! Keep it up!',
-    'You’ve got this down! An outstanding performance!'
-  ];
-%>
-<div class="result-section">
-
-<% if (scorePercentage < 25) { %>
-    <p class="score-comment"><%= fairComment[Math.floor(Math.random() * fairComment.length)] %></p>
-  <% } else if (scorePercentage < 75) { %>
-    <p class="score-comment"><%= goodComment[Math.floor(Math.random() * goodComment.length)] %></p>
-  <% } else { %>
-    <p class="score-comment"><%= excellentComment[Math.floor(Math.random() * excellentComment.length)] %></p>
-  <% } %>
-  
-<form action="/retry" method="POST">
-    <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
-    <input type="hidden" name="quizCategoryNumber" value="<%= encodeURIComponent(quizCategoryNumber) %>">
-    <button type="submit" class="next-action-button" id="retry">Retry Quiz</button>
-
-</form>
-<form action="/users/quiz" method="GET">
-    <button type="submit" class="next-action-button" id="newQuiz">Try Another quiz</button>
-</form>
-
-<div class="logout">
-   <a href="/users/logout" class="logout"> Logout </a>
- </div>
-
-
-</div>
-
-<p class="notice"> The questions for this quiz were sourced from <span><a href="https://opentdb.com/" class="opentb-link">Open Trivia Database.</a></span></p>
-<div>
-</div>
-
-<% } else { %>
-
-    <div id="tag-error" class="tag-error">
-
-        <p>no quiz data available</p>
+      <img src="/images/<%= trophy %>.png" class="trophy">
 
     </div>
- <% } %>
-<!-- <div class="result-page-actions">
+
+    <div class="results-page-subsection">
+      <h1 class="total-score">Total Score: <%- userScore %>/<%- totalQuestions %></h1>
+    <p class="score-percentage">You have answered <%- scorePercentage %>% of the questions correctly! </p>
+    <% 
+      fairComment = [
+        'That was a tough one, but don’t worry, you’ll get better with practice!',
+        'It’s okay! Every great journey starts with a single step.',
+        'Not quite there yet, but don’t give up—you’ve got this!',
+        'Everyone has off days. Keep trying and you’ll improve!',
+        'This quiz was just warming you up. You’ll do better next time!',
+        'Hang in there! You’re learning with every question.',
+        'Don’t be discouraged! Every attempt brings you closer to success.',
+        'Even the best make mistakes. Keep pushing forward!',
+        'It’s all about progress, not perfection. Keep at it!',
+        'This score doesn’t define you. Brush it off and try again!'
+      ];
+
+      goodComment = [
+        'Nice effort! You’re definitely on the right track.',
+        'Good job! Just a few more correct answers and you’ll ace it!',
+        'You’re almost there! Keep up the good work!',
+        'Well done! A little more practice and you’ll hit the top score.',
+        'You’ve got some solid knowledge! Keep building on it.',
+        'Great work! With a bit more focus, you’ll nail it next time.',
+        'You’re doing well! Just a few more tweaks and you’ll master this.',
+        'So close! Keep going, you’re almost at the top!',
+        'You’ve made good progress! Just a little more effort to perfect it.',
+        'You’ve got the potential! Keep pushing, and you’ll get there.'
+      ];
+
+      excellentComment = [
+        'Excellent work! You’re really on top of your game!',
+        'Great job! You’ve got a strong grasp on this.',
+        'You’re crushing it! Keep up the awesome work!',
+        'Fantastic! You’re really showing your knowledge here.',
+        'You’re a star! That’s an impressive score.',
+        'Amazing job! You’ve clearly put in the effort.',
+        'You’ve mastered this! Just a few more points to perfection!',
+        'Well done! Your hard work is paying off.',
+        'You’re knocking it out of the park! Keep it up!',
+        'You’ve got this down! An outstanding performance!'
+      ];
+    %>
+    <div class="result-section">
+
+    <% if (scorePercentage < 25) { %>
+        <p class="score-comment"><%= fairComment[Math.floor(Math.random() * fairComment.length)] %></p>
+      <% } else if (scorePercentage < 75) { %>
+        <p class="score-comment"><%= goodComment[Math.floor(Math.random() * goodComment.length)] %></p>
+      <% } else { %>
+        <p class="score-comment"><%= excellentComment[Math.floor(Math.random() * excellentComment.length)] %></p>
+      <% } %>
+      
+    <form action="/retry" method="POST">
+        <input type="hidden" name="quizData" value="<%= encodeURIComponent(JSON.stringify(data)) %>">
+        <input type="hidden" name="quizCategoryNumber" value="<%= encodeURIComponent(quizCategoryNumber) %>">
+        <button type="submit" class="next-action-button" id="retry">Retry Quiz</button>
+
+    </form>
+    <form action="/users/quiz" method="GET">
+        <button type="submit" class="next-action-button" id="newQuiz">Try Another quiz</button>
+    </form>
+
+    <div class="logout">
+      <a href="/users/logout" class="logout"> Logout </a>
+    </div>
+
+
+    </div>
+
+    <p class="notice"> The questions for this quiz were sourced from <span><a href="https://opentdb.com/" class="opentb-link">Open Trivia Database.</a></span></p>
+    <div>
+    </div>
+    </div>
+
+
+      
+
+    <% } else { %>
+
+        <div id="tag-error" class="tag-error">
+
+            <p>no quiz data available</p>
+
+        </div>
+    <% } %>
+
+  </div>
+  <!-- <div class="result-page-actions">
     
 <% if (locals.data) { %>
     <form action="/retry" method="POST">
