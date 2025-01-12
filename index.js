@@ -38,8 +38,6 @@ const difficultyLevels = ['easy', 'medium', 'hard'];
 const questionTypes = {'Multiple Choice': 'multiple', 'True or False': 'boolean'};
 const numberOfQuestions = ['5', '10', '15', '20', '25', '30'];
 
-// app.set('view engine', 'ejs');
-
 app.get("/", (req, res) => {
     res.render('landingPage.ejs')
 })
@@ -49,12 +47,6 @@ app.get('/users/quiz', async (req, res) => {
 });
 
 app.post('/users/quiz', async (req, res) => {
-
-    // const quizCategories = {'General Knowledge': 9, 'Books': 10, 'Music': 12, 'Video Games': 15, 'Nature': 17, 'Computers': 18, 'History': 23, 'Politics': 24, 'Animals': 27, 'Vehicles': 28, 'Gadgets': 30, 'Anime': 31};
-    // const difficultyLevels = ['easy', 'medium', 'hard'];
-    // const questionTypes = {'Multiple Choice': 'multiple', 'True or False': 'boolean'};
-    // const questionNumbers = ['5', '10', '15', '20', '25', '30'];
-
 
     try {
 
@@ -69,7 +61,10 @@ app.post('/users/quiz', async (req, res) => {
         const result = response.data;
 
         if (result.response_code === 0) {
-            res.redirect(`/quizPage?data=${encodeURIComponent(JSON.stringify(result.results))}&categoryNumber=${encodeURIComponent(quizCategory)}`);
+            req.session.quizData = result.results;
+            req.session.quizCategoryNumber = quizCategory;
+
+            res.redirect('/quizPage');
         } else {
             res.render('index.ejs', {
                 category: quizCategories,
@@ -101,7 +96,7 @@ app.get("/users/logout", (req, res) => {
         if (err) { 
             return next(err); 
         };
-    req.flash("success_msg", "You have logged out");
+    req.flash("success_msg", "You have successfully logged out");
     res.render('landingPage.ejs');
 
 });
@@ -113,14 +108,14 @@ app.post ("/users/register", async (req, res) => {
     let errors = [];
 
     if (!name || !email || !password || !password2) {
-        errors.push({message:"Please enter all fields"});
+        errors.push({message:"Please enter all fields!"});
     }
 
     if (password.length < 6) {
-        errors.push({message: "Password should be at least 6 characters"});
+        errors.push({message: "Password should be at least 6 characters!"});
     }
     if (password != password2) {
-        errors.push({message: "Passwords do not match"});
+        errors.push({message: "Passwords do not match!"});
     }
 
     if (errors.length > 0) {
@@ -138,7 +133,7 @@ app.post ("/users/register", async (req, res) => {
                 }
 
                 if (results.rows.length > 0) {
-                    errors.push({message:"Email already exists"});
+                    errors.push({message:"Email already exists!"});
                     res.render("register.ejs", {errors});
                 } else {
                     pool.query(
@@ -151,7 +146,7 @@ app.post ("/users/register", async (req, res) => {
                                 throw err;
                             }
 
-                            req.flash("success_msg", "You are now registered. Please log in")
+                            req.flash("success_msg", "You are now registered. Please log in to continue.")
                             res.redirect("/users/login");
 
                         }
@@ -170,27 +165,15 @@ app.post("/users/login", passport.authenticate("local", {
   })
 );
 
-// app.get("/users/quiz", (req, res) => {
-//     res.render("index.ejs", {user: "Humaira"});
-// })
-
-
 
 
 
 app.post("/quizPage", (req, res) => {
-    const quizData = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
+    const quizData = req.session.quizData;
     const currentQuestion = parseInt(req.body.currentQuestion);
     const action = req.body.action;
     let score = parseInt(req.body.score) || 0;
-    const categoryNumber = req.body.quizCategoryNumber;
-
-    // const selectedAnswer = req.body.selectedAnswer;
-    // const correctAnswer = quizData[currentQuestion -1].correctAnswer;
-
-    // if (selectedAnswer === correctAnswer) {
-    //     score += 1;
-    // }
+    const categoryNumber = req.session.quizCategoryNumber;
 
     if (quizData) {
         if (action === 'next') {
@@ -205,7 +188,6 @@ app.post("/quizPage", (req, res) => {
             res.redirect("/resultsPage");
 
 
-            // res.redirect(`/resultsPage?score=${score}&data=${encodeURIComponent(JSON.stringify(quizData))}&categoryNumber=${encodeURIComponent(categoryNumber)}`);
         }
     } else {
         res.render("quizPage.ejs", {data: null});
@@ -213,9 +195,9 @@ app.post("/quizPage", (req, res) => {
 });
 
 app.get("/quizPage", (req, res) => {
-    const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
+    const quizData = req.session.quizData;
     const score = parseInt(req.query.score) || 0;
-    const categoryNumber = req.query.categoryNumber;
+    const categoryNumber = req.session.quizCategoryNumber;
 
     if (quizData) {
         quizData.forEach(question => {
@@ -256,23 +238,6 @@ app.get("/quizPage", (req, res) => {
     } else {
         res.redirect("/users/quiz");
     }
-
-
-    // const score = parseInt(req.query.score) || 0;
-    // const quizData = req.query.data ? JSON.parse(decodeURIComponent(req.query.data)) : null;
-    // const categoryNumber = req.query.categoryNumber;
-
-
-    // if (quizData) {
-    //     const totalQuestions = quizData.length
-    //     res.render("resultsPage.ejs", {userScore: score, data: quizData, totalQuestions: totalQuestions, quizCategoryNumber: categoryNumber});
-
-    // }
-
-    // const quizData = req.body.quizData ? JSON.parse(decodeURIComponent(req.body.quizData)) : null;
-
-
-    // res.render("resultsPage.ejs", {data: quizData, userScore: score});
 
   });
 
