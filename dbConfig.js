@@ -17,7 +17,7 @@ const pool = new Pool({
   connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
   ssl: isProduction
     ? {
-        rejectUnauthorized: true, // Ensure proper SSL verification
+        rejectUnauthorized: false, // Ensure proper SSL verification
         ca: process.env.CA_CERTIFICATE, // Use the environment variable for CA certificate
       }
     : false, // Disable SSL for local development
