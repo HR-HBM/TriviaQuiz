@@ -15,12 +15,12 @@ const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PAS
 
 const pool = new Pool({
   connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
-  ssl: { rejectUnauthorized: false},
-  // ssl: isProduction
-  //   ? { rejectUnauthorized: true, // Use SSL only in production
-  //   ca: fs.readFileSync(path.join(__dirname, 'ca.pem'))
-  //   }
-  //   : false, // Disable SSL for local development
+  ssl: isProduction
+    ? {
+        rejectUnauthorized: true, // Ensure proper SSL verification
+        ca: process.env.CA_CERTIFICATE, // Use the environment variable for CA certificate
+      }
+    : false, // Disable SSL for local development
 });
 
 export { pool };
