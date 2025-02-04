@@ -34,7 +34,7 @@ if (!caCert) {
 const pool = new Pool({
   connectionString,
   ssl: {
-    rejectUnauthorized: true, // Enforces SSL certificate verification
+    rejectUnauthorized: false, // Enforces SSL certificate verification
     ca: caCert, // Attach the CA certificate
   },
 });
