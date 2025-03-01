@@ -1,7 +1,7 @@
 body {
     font-family: "Titillium Web", "Dosis";
     background-color: #01204E;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     /* overflow-y: hidden; */
@@ -206,6 +206,8 @@ form:valid .form-submit {
     font-weight: 700;
     letter-spacing: 1px;
 }
+
+
 .subheading {
     font-size: 15px;
     margin: 5px 0;
@@ -438,9 +440,14 @@ label.quiz-progress {
     font-size: 20px;
     display: inline-block;
     font-weight: 400;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     /* padding-right: 65px; */
 
+}
+
+.intro-message p {
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .results-page-subsection {
@@ -568,7 +575,7 @@ span.guest-user {
     left: 0;
     top: 0;
     z-index: 3;
-    margin: 0 0 0 30px;
+    margin: 0 0 0 10px;
     width: 123px;
     height: 49px;
     
@@ -593,6 +600,7 @@ span.guest-user {
 
 .credentials-section {
     margin-left: 10px;
+    /* justify-content: center; */
     /* height: 100%; */
 
 
@@ -601,8 +609,9 @@ span.guest-user {
     font-size: 30px;
     color: #DC5F00;
     font-weight: 700;
-    margin: 40px 0 0 0;
-    /* text-align: center; */
+    margin: 30px 0 0 0;
+    /* text-align: left; */
+    text-align: center;
 }
 
 .login-register-form input {
@@ -626,6 +635,7 @@ span.guest-user {
 .credentials-section .guest-user {
     font-size: 15px;
     margin: 10px 0 20px 0;
+    text-align: center;
 }
 
 .login-register-form input[type="submit"] {
@@ -700,7 +710,12 @@ span.guest-user {
     max-height: fit-content;
     padding-top: 10px;
     padding-bottom: 10px;
+    /* width: 230px; */
 
+}
+
+.google-auth {
+    width: 400px;
 }
 
 .logout {
@@ -711,6 +726,9 @@ span.guest-user {
 }
 
 .oAuth-div {
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
     /* margin-left: 40px; */
     /* display: flex;
     flex-direction: column; */
@@ -721,6 +739,7 @@ span.guest-user {
 
 .form-overlay, .login-form-overlay {
     width: 250px;
+    /* align-items: center; */
     background-color: #ffffff05;
     position: relative;
     border-radius: 15px;
@@ -936,16 +955,16 @@ span.guest-user {
     .mini-logo {
         width: 123px;
         height: 49px;
-        margin-top: 6vh;
+        margin-top: 5vh;
         margin-left: 6.25vw;
     }
 
     .welcome-message {
         color: white;
         text-align: center;
-        font-weight: 600;
+        font-weight: 400;
         font-size: 60px;
-        width: 350px;
+        width: 700px;
     }
 
     .welcome-message p {
@@ -968,6 +987,12 @@ span.guest-user {
     /* .intro-message p {
         line-height: 900%;
     } */
+
+    .intro-message p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
 
     .main-container {
         max-height: 100vh;
@@ -1098,7 +1123,8 @@ span.guest-user {
         font-size: 50px;
         color: white;
         font-weight: 700;
-        margin: 30px 0 0 0;
+        margin: 0;
+        text-align: left;
     }
 
     .login-register-form input {
@@ -1122,6 +1148,7 @@ span.guest-user {
     .credentials-section .guest-user {
         font-size: 20px;
         margin: 0 0 20px 0;
+        text-align: left;
     }
 
     .login-register-form input[type="submit"] {
@@ -1157,6 +1184,7 @@ span.guest-user {
         justify-content: center;
         max-width: 445px;
         margin-bottom: 15px;
+        padding-left: 25px;
     }
 
     .dash-line {
@@ -1192,6 +1220,7 @@ span.guest-user {
         max-height: fit-content;
         padding-top: 10px;
         padding-bottom: 10px;
+        width: 230px;
 
     }
 
@@ -1203,14 +1232,16 @@ span.guest-user {
     }
 
     .oAuth-div {
-        /* margin-left: 40px; */
+        margin-left: 5px;
+        /* width: 230px; */
     }
     .form-overlay { 
         height: 350px;
     }
 
     .form-overlay, .login-form-overlay {
-        width: 450px;
+        width: 430px;
+        /* align-items: center; */
         background-color: #ffffff05;
         position: relative;
         border-radius: 15px;
