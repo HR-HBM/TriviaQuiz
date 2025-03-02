@@ -1,7 +1,7 @@
 body {
     font-family: "Titillium Web", "Dosis";
     background-color: #01204E;
-    min-height: 100vh;
+    min-height: 98vh;
     display: flex;
     flex-direction: column;
     /* overflow-y: hidden; */
@@ -543,8 +543,8 @@ span.guest-user {
     justify-content: center; 
     text-align: center;
 
-    height: 100vh;
-    /* overflow-y: auto;  */
+    height: calc(100vh - var(--footer-height));
+    /* overflow-y: hidden;  */
 }
 
 .login-error {
@@ -600,7 +600,8 @@ span.guest-user {
 
 .credentials-section {
     margin-left: 10px;
-    /* justify-content: center; */
+    justify-content: center;
+    align-items: center;
     /* height: 100%; */
 
 
@@ -710,12 +711,13 @@ span.guest-user {
     max-height: fit-content;
     padding-top: 10px;
     padding-bottom: 10px;
+    /* math-depth: fit-content; */
     /* width: 230px; */
 
 }
 
 .google-auth {
-    width: 400px;
+    width: fit-content;
 }
 
 .logout {
@@ -735,13 +737,17 @@ span.guest-user {
 }
 .form-overlay { 
     height: 250px;
+    /* align-items: center; */
 }
 
 .form-overlay, .login-form-overlay {
     width: 250px;
-    /* align-items: center; */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff05;
     position: relative;
+
     border-radius: 15px;
     margin-bottom: 20px;
     padding: 10px;
@@ -797,6 +803,9 @@ span.guest-user {
     .logo-container {
         margin: 10px 0 30px 0;
         
+    }
+    body {
+        min-height: 100vh;
     }
     /* .error-section-main-container {
         display: flex;
@@ -1061,6 +1070,7 @@ span.guest-user {
         grid-template-columns: 1fr 1fr;
         height: calc(100vh - var(--footer-height));
         overflow-y: auto; 
+        
     }
 
     .login-error {
@@ -1091,7 +1101,7 @@ span.guest-user {
         left: 0;
         top: 0;
         z-index: 3;
-        margin:  20px 0 0 20px;
+        margin:  10px 0 0 20px;
         width: 123px;
         height: 49px;
 
