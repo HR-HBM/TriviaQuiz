@@ -1,7 +1,7 @@
 body {
     font-family: "Titillium Web", "Dosis";
     background-color: #01204E;
-    min-height: 98vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     /* overflow-y: hidden; */
@@ -20,7 +20,7 @@ a:visited {
     text-decoration: none;
 }
 a:link {
-    color: grey;
+    color: #F6DCAC;
     text-decoration: none;
 }
 
@@ -270,7 +270,7 @@ label.quiz-progress {
 }
 
 .notice {
-    color: #F6DCAC;
+    color: grey;
     width: 300px;
     text-align: center;
     margin: 35px auto 5px auto;
@@ -599,7 +599,7 @@ span.guest-user {
 }
 
 .credentials-section {
-    margin-left: 10px;
+    /* margin-left: 10px; */
     justify-content: center;
     align-items: center;
     /* height: 100%; */
@@ -689,7 +689,7 @@ span.guest-user {
     border-radius: 5px;
     border-color: white;
     margin-top: 10px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     color: white;
     font-size: 15px;
     font-family: "Titillium Web", "Dosis";
@@ -729,8 +729,11 @@ span.guest-user {
 
 .oAuth-div {
     width: fit-content;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    margin-left: 22px;
+
+
     /* margin-left: 40px; */
     /* display: flex;
     flex-direction: column; */
@@ -756,6 +759,10 @@ span.guest-user {
 .login-form-overlay {
     height: 250px;
 
+}
+
+.register {
+    height: 160px;
 }
 
 .password-toggle-icon {
@@ -805,7 +812,7 @@ span.guest-user {
         
     }
     body {
-        min-height: 100vh;
+        /* min-height: 100vh; */
     }
     /* .error-section-main-container {
         display: flex;
@@ -859,7 +866,7 @@ span.guest-user {
         border-radius: 25px;        
     }
     .quiz-selection-section {
-        margin-top: 80px;
+        margin-top: 20px;
     }
 
     .form-submit, .answer-submit-button {
@@ -1258,7 +1265,7 @@ span.guest-user {
         margin-bottom: 20px;
         
     }
-    .login-form-overlay {
+    .login-form-overlay, register {
         height: 250px;
 
     }
