@@ -117,11 +117,15 @@ select {
     
 }
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
     margin-top: auto;
     background-color: #DC5F00;
     text-align: center;
     color: white;
     font-weight: 600;
+    width: 100vw;
    
 }
 .form-submit, .answer-submit-button {
@@ -721,10 +725,14 @@ span.guest-user {
 }
 
 .logout {
-    margin-top: 10px;
+    margin-top: 25px;
     text-align: center;
     text-decoration: underline;
     color: white;
+}
+
+.result-section > .logout {
+    margin-top: 0px;
 }
 
 .oAuth-div {
@@ -787,12 +795,7 @@ span.guest-user {
     /* color: white; */
   }
 
-
-
-
-
-
-@media (min-width: 500px) {
+@media (min-width: 850px) {
     
     .answer-option, .next-action-button {
         height: 30px;
@@ -804,8 +807,549 @@ span.guest-user {
     }
    
     .logo {
-        height: 106px;
-        width: 240px;
+        height: 53px;
+        width: 120px;
+    }
+    .logo-container {
+        margin: 10px 0 30px 0;
+        
+    }
+    body {
+        /* min-height: 100vh; */
+    }
+    /* .error-section-main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .error-section-main-container > .logo-container {
+        margin-top: 30px;
+    } */
+
+    /* .error-section-main-container .logo-container {
+        margin-top: 40px; */
+
+
+    .top-section {
+    /* justify-content: space-between; */
+    margin: 25px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* margin-bottom: 40px; */
+    }
+      
+    label {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        margin-left: 27px;
+        font-size: 18px;
+      }
+    
+    select {
+        border-radius: 10px;
+        color: #028391;
+        height: 30px;
+        width: 400px;
+        margin-left: 25px;
+        padding-left: 5px;
+        font-size: 15px;
+    }
+    
+    #selectionOptions{
+        height: 400px;
+    }
+    
+    .quiz-selection-section, .question-section {
+        height: fit-content;
+        width: 450px;
+        border-radius: 25px;        
+    }
+    .quiz-selection-section {
+        margin-top: 20px;
+    }
+
+    .form-submit, .answer-submit-button {
+        width: 450px;
+        height: 35px;
+        font-size: 17px;
+        border-radius: 0 0 25px 25px;
+    }
+    
+    .quiz-header {
+        width: 450px;
+        height: 140px;
+    }
+
+    .heading-section {
+        width: 450px;
+        height: 140px;
+    
+    }
+    .header-container {
+        width: 450px;
+        height: 140px;
+    }
+    .background-overlay {
+        width: 450px;
+        height: 140px;
+    
+    }
+
+
+    
+    .mainheading {
+        font-size: 30px;
+        margin: 20px 10px;
+    }
+    .subheading {
+        font-size: 20px;
+    }
+    .progress-bar {
+        width: 450px;
+
+    }
+    #answerOptions input {
+        border-radius: 15px;
+    }
+    .question-section {
+        padding-top: 30px;    
+    }
+    
+    .tag-error {
+        padding: 25px 0;
+        width: 450px;
+        margin: 60px auto;
+        border-radius: 25px;
+    }
+
+    .notice {
+    width: fit-content;
+    text-align: center;
+    margin: 35px auto 5px auto;
+    
+    }
+
+    .tag-error button {
+        margin-bottom: 0;
+    }
+    .tag-error p {
+        width: 350px;
+        margin-left: 50px;
+    }
+  
+    .quiz-question, .score-comment {
+        font-size: 20px;
+        width: 400px;
+        margin: 0 18px 15px 25px;
+       
+    }
+    progress {
+        width: 440px;
+        border-radius: 10px;
+        height: 15px;
+        margin-bottom: 30px;
+    }
+    #quizProgress::-webkit-progress-bar {
+        border-radius: 10px;
+    }
+    #quizProgress::-webkit-progress-value {
+        border-radius: 10px;
+    }
+    .trophy {
+        width: 140px;
+        height: auto;
+        margin: 20px 160px;
+    }
+    
+    .total-score {
+        font-size: 35px;    
+    }
+    .score-percentage {
+        font-size: 22px;
+        width: fit-content;
+    }
+    
+    .result-section {
+        width: 450px;
+        border-radius: 30px;
+    }
+        /* new css updates */
+
+    .mini-logo {
+        width: 123px;
+        height: 49px;
+        margin-top: 5vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .welcome-message {
+        color: white;
+        text-align: center;
+        font-weight: 600;
+        font-size: 40px;
+        width: 700px;
+    }
+
+    .welcome-message p {
+        margin: 20px 0 70px 0;
+        color: #DC5F00;
+    }
+
+    .intro-message {
+        color: white;
+        width: 300px;
+        font-size: 45px;
+        display: inline-block;
+        font-weight: 400;
+        padding: 0 60px;
+        border-right: 2px solid white;
+        margin-right: 65px;
+
+    }
+
+    /* .intro-message p {
+        line-height: 900%;
+    } */
+
+    .intro-message p {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 30px 0;
+        font-size: 0.8em;
+    }
+
+
+    .main-container {
+        max-height: 100vh;
+        display: grid;
+        grid-template-rows: auto;
+
+    }
+
+    .emphasis {
+        color: #DC5F00;
+        font-weight: 600;
+    }
+
+    .access-options {
+        /* display: inline-block; */
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+    }
+
+    .access-option1, .access-option2 {
+        /* display: grid; */
+        width: 350px;
+        height: 40px;
+        font-size: 25px;
+        border-radius: 8px;
+        color: #01204E;
+        margin: 0 0 50px 0;
+        font-family: "Titillium Web", "Dosis";
+
+    }
+    .access-option1{
+        border: none;
+        background-color: #DC5F00;
+        margin-top: 10px;
+
+    }
+
+    .access-option2 {
+        background: none;
+        border-color: #DC5F00;
+        color: #DC5F00;
+    }
+
+    span.guest-user {
+        text-decoration: underline;
+        color: #DC5F00;
+    }
+    .guest-user {
+        color: white;
+        font-size: 18px;
+        text-align: left;
+        margin-bottom: 0;
+    
+    }
+
+    .greeting {
+        color: white;
+        /* margin-right: 30px; */
+        font-size: 30px;
+        width: 300px;
+        text-align: center;
+        margin: 0 0 0 0;
+
+    }
+
+
+    .quiz-access {
+        display: flex;
+        justify-content: center;
+        /* text-align: center; */
+        align-items: center;
+        text-align: left;
+    }
+
+    .main-container2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: calc(100vh - var(--footer-height));
+        overflow-y: auto; 
+        
+    }
+
+    .login-error {
+        color: white;
+        max-width: fit-content;
+        max-height: fit-content;
+        padding: 10px;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    .trivia-image, .overlay {
+        width: 50vw;
+        height: 92vh;
+        border-radius: 5px;
+
+    }
+    .trivia-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        visibility: visible;
+    }
+
+    .main-container2 .mini-logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        margin:  10px 0 0 20px;
+        width: 123px;
+        height: 49px;
+
+    }
+
+    .overlay {
+        background-color: #01204E59;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        visibility: visible;
+    }
+
+    .login-intro-images {
+        position: relative;
+        margin: 20px 0 auto 20px;
+        width: 50vw;
+        height: 92vh;
+    }
+
+    .credentials-section {
+        margin-left: 150px;
+        /* height: 100%; */
+
+
+    }
+    .page-title {
+        font-size: 50px;
+        color: white;
+        font-weight: 700;
+        margin: 0;
+        text-align: left;
+    }
+
+    .login-register-form input {
+        background-color: #18345E;
+        width: 380px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 20px;
+        margin: 0 0 25px 0;
+        font-weight: 400;
+        padding-left: 20px;
+
+    }
+
+    .login-register-form input::placeholder {
+        color: white;
+    }
+
+    .credentials-section .guest-user {
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        text-align: left;
+    }
+
+    .login-register-form input[type="submit"] {
+        background-color: #DC5F00;
+        /* padding-left: 0; */
+        width: 400px;
+        margin-top: 30px;
+
+    }
+
+    .option-title p {
+        color: white;
+        font-size: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+
+
+        /* background-color: green; */
+    }
+    .login-register-form {
+        height: fit-content;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        padding-top: 10px;
+    }
+
+    .option-title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: 445px;
+        margin-bottom: 15px;
+        padding-left: 25px;
+    }
+
+    .dash-line {
+        border-top: 2px solid white;
+        width: 130px;
+    }
+
+    .google {
+        width: 400px;
+        background-color: #18345E !important;
+        border-radius: 5px;
+        border-color: white;
+        margin-top: 20px;
+        margin-left: 20px;
+        color: white;
+        font-size: 20px;
+        font-family: "Titillium Web", "Dosis";
+        
+        display: flex;
+        align-items: center; 
+        padding: 0 auto 0 auto;  
+    }
+    .google-icon {
+        /* width: 27px; */
+        /* height: 26px; */
+        margin: 0 30px 0 130px;
+        vertical-align: middle;
+        width: 20px; /* Adjust size as needed */
+        height: auto;
+    }
+
+    .google-auth a {
+        max-height: fit-content;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 230px;
+
+    }
+
+    .logout {
+        margin-top: 20px;
+        text-align: center;
+        text-decoration: underline;
+        color: white;
+    }
+
+    .oAuth-div {
+        margin-left: 5px;
+        /* width: 230px; */
+    }
+    .form-overlay { 
+        height: 350px;
+    }
+
+    .form-overlay, .login-form-overlay {
+        width: 430px;
+        /* align-items: center; */
+        background-color: #ffffff05;
+        position: relative;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        
+    }
+    .login-form-overlay, register {
+        height: 250px;
+
+    }
+    .password-toggle-icon {
+        position: absolute;
+        right: 20px;
+        top:  72px;
+        /* top: 50%; */
+        /* right: 0; */
+        /* transform: translateY(-50%); */
+        cursor: pointer;
+      }
+      
+      .password-toggle-icon i {
+        /* font-size: 18px; */
+        /* line-height: 1; */
+        color: white;
+        /* transition: color 0.3s ease-in-out; */
+        /* margin-bottom: 20px; */
+      }
+      
+      .password-toggle-icon i:hover {
+        /* color: white; */
+      }
+
+   
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 500px) and (max-width: 849px) {
+    
+    .answer-option, .next-action-button {
+        height: 30px;
+        width: 300px;
+        margin-left: 25px;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+   
+    .logo {
+        height: 53px;
+        width: 120px;
     }
     .logo-container {
         margin: 10px 0 30px 0;
@@ -932,7 +1476,7 @@ span.guest-user {
   
     .quiz-question, .score-comment {
         font-size: 20px;
-        width: 400px;
+        width: 300px;
         margin: 0 18px 15px 25px;
        
     }
@@ -963,7 +1507,7 @@ span.guest-user {
     }
     
     .result-section {
-        width: 450px;
+        width: 350px;
         border-radius: 30px;
     }
         /* new css updates */
@@ -1298,3 +1842,8 @@ span.guest-user {
 
 
 }
+
+
+
+
+
