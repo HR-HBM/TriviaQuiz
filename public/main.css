@@ -20,14 +20,14 @@ a:visited {
     text-decoration: none;
 }
 a:link {
-    color: #F6DCAC;
+    color: white;
     text-decoration: none;
 }
 
 .answer-option, .next-action-button {
     font-family: "Titillium Web", "Dosis";
-    background-color: #F6DCAC;
-    color: #028391;
+    background-color: #18345E;
+    color: #DC5F00;
     height: 25px;
     width: 200px;
     margin-left: 18px;
@@ -59,8 +59,8 @@ a:link {
     cursor: not-allowed; /* Visual indicator when disabled */
 }
 .logo {
-    height: 35px;
-    width: 80px;
+    height: 50px;
+    width: auto;
 }
 .logo-container {
     max-width: fit-content;  
@@ -74,10 +74,10 @@ a:link {
 label {
     width:200px;
     display: inline-block;
-    color: #01204E;
+    color: #DC5F00;
     margin-top: 21px;
     margin-left: 18px;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 15px;
 
   }
@@ -91,9 +91,9 @@ label {
 
 select {
     font-family: "Titillium Web", "Dosis";
-    background-color: #F6DCAC;
+    background-color: #18345E;
     border-radius: 10px;
-    color: #028391;
+    color: #01204E;
     height: 30px;
     width: 200px;
     margin-left: 18px;
@@ -108,7 +108,8 @@ select {
 }
 
 .quiz-selection-section, .question-section {
-    background-color: #028391;
+    background-color: #01204E;
+    border: solid 2px #DC5F00;
     height: fit-content;
     width: 235px;
     border-radius: 20px 20px 20px 20px;
@@ -136,7 +137,7 @@ footer {
     bottom: 0;
     right: 0;
     background-color: #DC5F00;
-    color: #F6DCAC;
+    color: white;
     border: none;
     font-family: "Titillium Web", "Dosis";
     font-size: 15px;
@@ -206,7 +207,7 @@ form:valid .form-submit {
     font-size: 20px;
     margin: 15px 0 10px 0;
     line-height: 80%;
-    color: #F6DCAC;
+    color: white;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -316,7 +317,7 @@ label.quiz-progress {
 } 
 
 .quiz-question, .score-comment {
-    color: #01204E;
+    color: white;
     text-align: center;
     font-size: 15px;
     font-weight: 600;
@@ -338,11 +339,11 @@ progress {
     height: 10px;
 }
 #quizProgress::-webkit-progress-bar {
-    background-color: #F6DCAC;
+    background-color: white;
     border-radius: 5px;
 }
 #quizProgress::-webkit-progress-value {
-    background-color: #028391;
+    background-color: #DC5F00;
     border-radius: 5px;
 }
 label.quiz-progress {
@@ -397,14 +398,14 @@ label.quiz-progress {
 
 #retry {
     background-color: transparent;
-    color: #F6DCAC;
+    color: white;
 }
 
 /* new css updates */
 
 .mini-logo {
-    width: 100px;
-    height: 40px;
+    width: 70px;
+    height: auto;
     margin-top: 25px;
     text-align: center;
 }
@@ -807,11 +808,11 @@ span.guest-user {
     }
    
     .logo {
-        height: 53px;
-        width: 120px;
+        height: 80px;
+        width: auto;
     }
     .logo-container {
-        margin: 10px 0 30px 0;
+        margin: 10px 0 15px 0;
         
     }
     body {
@@ -851,7 +852,7 @@ span.guest-user {
     
     select {
         border-radius: 10px;
-        color: #028391;
+        color: white;
         height: 30px;
         width: 400px;
         margin-left: 25px;
@@ -980,8 +981,8 @@ span.guest-user {
         /* new css updates */
 
     .mini-logo {
-        width: 123px;
-        height: 49px;
+        width: 125px;
+        height: auto;
         margin-top: 5vh;
         margin-left: auto;
         margin-right: auto;
@@ -1348,11 +1349,11 @@ span.guest-user {
     }
    
     .logo {
-        height: 53px;
-        width: 120px;
+        height: 80px;
+        width: auto;
     }
     .logo-container {
-        margin: 10px 0 30px 0;
+        margin: 10px 0 15px 0;
         
     }
     body {
@@ -1392,7 +1393,7 @@ span.guest-user {
     
     select {
         border-radius: 10px;
-        color: #028391;
+        color: #01204E;
         height: 30px;
         width: 400px;
         margin-left: 25px;
