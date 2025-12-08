@@ -20,7 +20,7 @@ a:visited {
     text-decoration: none;
 }
 a:link {
-    color: white;
+    color: grey;
     text-decoration: none;
 }
 
@@ -295,8 +295,8 @@ label.quiz-progress {
 }
 
 .notice {
-    color: grey;
-    width: 300px;
+    color: white;
+    width: 250px;
     text-align: center;
     margin: 35px auto 5px auto;
     
@@ -367,7 +367,7 @@ progress {
     border-radius: 5px;
 }
 label.quiz-progress {
-    color: #F6DCAC;
+    color: white;
 }
 .trophy {
     width: 100px;
@@ -384,7 +384,7 @@ label.quiz-progress {
 .total-score {
     font-weight: 700;
     font-size: 25px;
-    color: #F6DCAC;
+    color: white;
     margin: 10px 0;
     text-align: center;
 
@@ -392,7 +392,7 @@ label.quiz-progress {
 .score-percentage {
     font-weight: 400;
     font-size: 18px;
-    color: #F6DCAC;
+    color: #DC5F00;
     margin: 20px auto;
     text-align: center;
     line-height: 90%;
@@ -400,25 +400,38 @@ label.quiz-progress {
 }
 
 .result-section {
-    background-color: #028391;
+    background-color: #01204E;
     padding: 20px 0;
     height: fit-content;
     /* padding-bottom: 8%; */
     word-wrap: break-word;
     width: 235px;
+    border: solid 2px #DC5F00;
     border-radius: 20px 20px 20px 20px;
     position: relative;
     margin: 10px auto 0 auto;
 
 }
 
-#retry, #newQuiz {
-    border: 1px solid #F6DCAC;
+#retry {
+    border: 2px solid #DC5F00;
+    background-color: hsl(26, 100%, 43%);
+    color: #01204E;
+    margin-left: 18px;
+}
+
+#newQuiz {
+    border: 2px solid #DC5F00;
+    background-color: transparent;
+    margin-top: 20px;
+    color: #DC5F00;
+    margin-left: 18px;
 }
 
 #retry {
-    background-color: transparent;
-    color: white;
+    /* margin-right:20px; */
+    /* background-color: transparent; */
+    /* color: white; */
 }
 
 /* new css updates */
@@ -508,7 +521,7 @@ label.quiz-progress {
     width: 250px;
     height: 35px;
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     color: white;
     margin: 0 0 20px 0;
     font-family: "Titillium Web", "Dosis";
@@ -756,7 +769,7 @@ span.guest-user {
 }
 
 .result-section > .logout {
-    margin-top: 0px;
+    margin-top: 20px;
 }
 
 .oAuth-div {
@@ -831,7 +844,7 @@ span.guest-user {
     }
 
     .next-action-button {
-        width: 300px;
+        width: 400px;
         /* margin-left: 25px;
         font-size: 15px;
         margin-top: 10px;
@@ -880,6 +893,14 @@ span.guest-user {
         margin-left: 27px;
         font-size: 18px;
       }
+
+      #retry {
+    border: 2px solid #DC5F00;
+    background-color: hsl(26, 100%, 43%);
+    color: #01204E;
+    margin-left: 25px;
+}
+
     
     select {
         border-radius: 10px;
@@ -953,7 +974,7 @@ span.guest-user {
     
     .tag-error {
         padding: 25px 0;
-        width: 350px;
+        width: 450px;
         margin: 60px auto;
         border-radius: 25px;
     }
@@ -961,7 +982,7 @@ span.guest-user {
     .notice {
     width: fit-content;
     text-align: center;
-    margin: 35px auto 5px auto;
+    margin: 25px auto 5px auto;
     
     }
 
@@ -969,7 +990,7 @@ span.guest-user {
         margin-bottom: 0;
     }
     .tag-error p {
-        width: 350px;
+        width: 450px;
         margin-left: 0;
     }
   
@@ -1030,6 +1051,14 @@ span.guest-user {
     .welcome-message p {
         margin: 20px 0 70px 0;
         color: #DC5F00;
+    }
+
+    #newQuiz {
+    border: 2px solid #DC5F00;
+    background-color: transparent;
+    margin-top: 20px;
+    color: #DC5F00;
+    margin-left: 25px;
     }
 
     .intro-message {
@@ -1302,11 +1331,12 @@ span.guest-user {
     }
 
     .logout {
-        position: absolute;
-        width: fit-content;
+        /* position: absolute; */
+        width: 450px;
         top: 10%;
         right: 10%;
-        margin-top: 20px;
+        margin: 10px auto;
+        /* margin-top: 20px; */
         text-align: center;
         text-decoration: underline;
         color: white;
@@ -1388,7 +1418,7 @@ span.guest-user {
     background-color: #DC5F00;
     color: white;
     height: 25px;
-    width: 200px;
+    width: 300px;
     margin-left: 18px;
     font-size: 13px;
     line-height: 70%;
@@ -1519,7 +1549,7 @@ span.guest-user {
     
     .tag-error {
         padding: 25px 0;
-        width: 300px;
+        width: 350px;
         margin: 60px auto;
         border-radius: 25px;
     }
@@ -1527,16 +1557,24 @@ span.guest-user {
         margin-bottom: 0;
     }
     .tag-error p {
-        width: 300px;
+        width: 350px;
         margin-left: 0;
     }
   
-    .quiz-question, .score-comment {
+    .quiz-question {
         font-size: 20px;
         width: 400px;
         margin: 0 18px 15px 25px;
        
     }
+
+    .score-comment {
+        /* font-size: 20px; */
+        width: 300px;
+        /* margin: 0 18px 15px 25px; */
+       
+    }
+
     progress {
         width: 440px;
         border-radius: 10px;
@@ -1843,7 +1881,7 @@ span.guest-user {
     }
 
     .logout {
-        position: absolute;
+        /* position: absolute; */
         top: 7%;
         right: 7%;
         margin-top: 20px;
