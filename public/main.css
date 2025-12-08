@@ -24,7 +24,7 @@ a:link {
     text-decoration: none;
 }
 
-.answer-option, .next-action-button {
+.answer-option {
     font-family: "Titillium Web", "Dosis";
     background-color: #18345E;
     color: #DC5F00;
@@ -41,6 +41,26 @@ a:link {
     border-radius: 15px;
     margin-bottom: 20px;
     border: solid 1px #F6DCAC;
+}
+
+
+.next-action-button {
+    font-family: "Titillium Web", "Dosis";
+    background-color: #DC5F00;
+    color: white;
+    height: 25px;
+    width: 200px;
+    margin-left: 18px;
+    font-size: 13px;
+    line-height: 70%;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: 600;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+    border-radius: 15px;
+    /* margin-bottom: 20px; */
+    border: solid 1px #DC5F00;
 }
 
 /* .answer-submit-button {
@@ -93,7 +113,7 @@ select {
     font-family: "Titillium Web", "Dosis";
     background-color: #18345E;
     border-radius: 10px;
-    color: #01204E;
+    color: white;
     height: 30px;
     width: 200px;
     margin-left: 18px;
@@ -143,7 +163,7 @@ footer {
     font-size: 15px;
     opacity: 0.5;
     cursor: not-allowed;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 18px 18px;
     /* cursor: not-allowed;  */
     font-weight: 700;
     /* transform: translateY(-100%); */
@@ -257,14 +277,14 @@ label.quiz-progress {
 }
 
 .tag-error {
-    color: #F6DCAC;
+    color: white;
     padding: 20px 0;
     width: 275px;
     height: fit-content;
     text-align: center;
     margin: 50px auto;
     border-radius: 20px;
-    border:1px solid #028391;
+    border:1px solid #DC5F00;
 }
 .tag-error button {
     margin-left: 0;
@@ -283,12 +303,12 @@ label.quiz-progress {
 }
 .opentb-link {
     text-decoration: underline;
-    color: #F6DCAC;
+    color: white;
 }
 
 .main-error {
     font-weight: 700;
-    color: #FF0000;
+    color: #DC5F00;
     margin: 0;
    
 }
@@ -576,13 +596,14 @@ span.guest-user {
 }
 
 .main-container2 .mini-logo {
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: fixed;
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 3;
     margin: 0 0 0 10px;
-    width: 123px;
-    height: 49px;
+    width: 60px;
+    height: auto;
     
 
 }
@@ -726,6 +747,8 @@ span.guest-user {
 }
 
 .logout {
+    /* position: absolute;
+    bottom: 10%; */
     margin-top: 25px;
     text-align: center;
     text-decoration: underline;
@@ -806,6 +829,14 @@ span.guest-user {
         margin-top: 10px;
         margin-bottom: 25px;
     }
+
+    .next-action-button {
+        width: 300px;
+        /* margin-left: 25px;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 25px; */
+    }
    
     .logo {
         height: 80px;
@@ -834,10 +865,10 @@ span.guest-user {
 
     .top-section {
     /* justify-content: space-between; */
-    margin: 25px 0 40px 0;
+    margin: 25px 50px 40px 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     /* justify-content: space-between; */
     /* margin-bottom: 40px; */
@@ -877,7 +908,7 @@ span.guest-user {
         width: 450px;
         height: 35px;
         font-size: 17px;
-        border-radius: 0 0 25px 25px;
+        border-radius: 0 0 23px 23px;
     }
     
     .quiz-header {
@@ -922,7 +953,7 @@ span.guest-user {
     
     .tag-error {
         padding: 25px 0;
-        width: 450px;
+        width: 350px;
         margin: 60px auto;
         border-radius: 25px;
     }
@@ -939,7 +970,7 @@ span.guest-user {
     }
     .tag-error p {
         width: 350px;
-        margin-left: 50px;
+        margin-left: 0;
     }
   
     .quiz-question, .score-comment {
@@ -1052,7 +1083,7 @@ span.guest-user {
         height: 40px;
         font-size: 25px;
         border-radius: 8px;
-        color: #01204E;
+        color: white;
         margin: 0 0 50px 0;
         font-family: "Titillium Web", "Dosis";
 
@@ -1066,8 +1097,8 @@ span.guest-user {
 
     .access-option2 {
         background: none;
-        border-color: #DC5F00;
-        color: #DC5F00;
+        border-color: white;
+        color: white;
     }
 
     span.guest-user {
@@ -1085,8 +1116,8 @@ span.guest-user {
     .greeting {
         color: white;
         /* margin-right: 30px; */
-        font-size: 30px;
-        width: 300px;
+        font-size: 25px;
+        width: 120px;
         text-align: center;
         margin: 0 0 0 0;
 
@@ -1133,14 +1164,14 @@ span.guest-user {
     }
 
     .main-container2 .mini-logo {
-        position: absolute;
-        left: 0;
-        top: 0;
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        transform: translate(-50%, -50%);
         z-index: 3;
         margin:  10px 0 0 20px;
-        width: 123px;
-        height: 49px;
-
+        width: 80;
+        height: auto;
     }
 
     .overlay {
@@ -1271,6 +1302,10 @@ span.guest-user {
     }
 
     .logout {
+        position: absolute;
+        width: fit-content;
+        top: 10%;
+        right: 10%;
         margin-top: 20px;
         text-align: center;
         text-decoration: underline;
@@ -1339,17 +1374,36 @@ span.guest-user {
 
 @media (min-width: 500px) and (max-width: 849px) {
     
-    .answer-option, .next-action-button {
+    .answer-option {
         height: 30px;
-        width: 300px;
+        width: 400px;
         margin-left: 25px;
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 25px;
     }
+
+    .next-action-button {
+    font-family: "Titillium Web", "Dosis";
+    background-color: #DC5F00;
+    color: white;
+    height: 25px;
+    width: 200px;
+    margin-left: 18px;
+    font-size: 13px;
+    line-height: 70%;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: 600;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+    border-radius: 15px;
+    /* margin-bottom: 20px; */
+    border: solid 1px #DC5F00;
+}
    
     .logo {
-        height: 80px;
+        height: 60px;
         width: auto;
     }
     .logo-container {
@@ -1375,10 +1429,10 @@ span.guest-user {
 
     .top-section {
     /* justify-content: space-between; */
-    margin: 25px 0 40px 0;
+    margin: 25px 50px 40px 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     /* justify-content: space-between; */
     /* margin-bottom: 40px; */
@@ -1393,7 +1447,7 @@ span.guest-user {
     
     select {
         border-radius: 10px;
-        color: #01204E;
+        color: white;
         height: 30px;
         width: 400px;
         margin-left: 25px;
@@ -1418,8 +1472,10 @@ span.guest-user {
         width: 450px;
         height: 35px;
         font-size: 17px;
-        border-radius: 0 0 25px 25px;
+        border-radius: 0 0 23px 23px;
+
     }
+
     
     .quiz-header {
         width: 450px;
@@ -1463,7 +1519,7 @@ span.guest-user {
     
     .tag-error {
         padding: 25px 0;
-        width: 450px;
+        width: 300px;
         margin: 60px auto;
         border-radius: 25px;
     }
@@ -1471,13 +1527,13 @@ span.guest-user {
         margin-bottom: 0;
     }
     .tag-error p {
-        width: 350px;
-        margin-left: 50px;
+        width: 300px;
+        margin-left: 0;
     }
   
     .quiz-question, .score-comment {
         font-size: 20px;
-        width: 300px;
+        width: 400px;
         margin: 0 18px 15px 25px;
        
     }
@@ -1654,8 +1710,8 @@ span.guest-user {
         top: 0;
         z-index: 3;
         margin:  10px 0 0 20px;
-        width: 123px;
-        height: 49px;
+        width: 80px;
+        height: auto;
 
     }
 
@@ -1787,6 +1843,9 @@ span.guest-user {
     }
 
     .logout {
+        position: absolute;
+        top: 7%;
+        right: 7%;
         margin-top: 20px;
         text-align: center;
         text-decoration: underline;
@@ -1835,6 +1894,8 @@ span.guest-user {
       .password-toggle-icon i:hover {
         /* color: white; */
       }
+
+
 
    
 
